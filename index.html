@@ -26,7 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -656,5 +656,24 @@
   <!-- Main JavaScript -->
   <script src="js/main.js"></script>
 
-</body>
+  <!-- Inline safety: reveal elements already in viewport on load -->
+  <script>
+    (function() {
+      function revealVisible() {
+        var els = document.querySelectorAll('.fade-in');
+        els.forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight + 100) {
+            el.classList.add('visible');
+          }
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', revealVisible);
+      } else {
+        revealVisible();
+      }
+      window.addEventListener('scroll', revealVisible, { passive: true });
+    })();
+  </script></body>
 </html>
