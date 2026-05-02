@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta Tags -->
+  <title>Axiom Business Tech — Finance, Data & Technology for Growing Businesses</title>
+  <meta name="description" content="Axiom Business Tech combines accounting expertise, data analytics, and technology to help businesses improve financial clarity and make data-driven decisions." />
+  <meta name="keywords" content="bookkeeping, accounting, financial reporting, data analytics, Power BI dashboards, business intelligence, Python automation, SQL, ACCA" />
+  <meta name="author" content="Axiom Business Tech" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Axiom Business Tech" />
+  <meta property="og:description" content="Finance, Data & Technology — Built for Growing Businesses" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon — replace favicon.ico with your file -->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" href="assets/favicon.ico" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===========================
+       NAVBAR
+       =========================== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
+        <!-- Replace src with your logo file: assets/logo.png -->
+        <!-- If you have a logo image, use:
+        <img src="assets/logo.png" alt="Axiom Business Tech Logo" class="nav-logo-img" />
+        -->
+        <div class="nav-logo-fallback" aria-hidden="true">A</div>
+        <span class="nav-logo-text">Axiom Business Tech</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+      </ul>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" role="menu" aria-label="Mobile navigation">
+    <a href="index.html" class="nav-link active" role="menuitem">Home</a>
+    <a href="about.html" class="nav-link" role="menuitem">About</a>
+    <a href="services.html" class="nav-link" role="menuitem">Services</a>
+    <a href="portfolio.html" class="nav-link" role="menuitem">Portfolio</a>
+    <a href="contact.html" class="nav-cta" role="menuitem">Contact Us</a>
+  </div>
+
+  <main>
+
+    <!-- ===========================
+         HERO SECTION
+         =========================== -->
+    <section class="hero" id="home" aria-label="Hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+      <div class="hero-blob hero-blob-3" aria-hidden="true"></div>
+
+      <div class="hero-container">
+        <!-- Left: Content -->
+        <div class="hero-content">
+
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            Finance · Data · Technology
+          </div>
+
+          <h1 class="hero-title">
+            Transforming <span class="highlight">Financial Data</span> Into Business Growth
+          </h1>
+
+          <p class="hero-subtitle">
+            We help businesses maintain accurate financial records and turn data into actionable insights using modern tools and systems.
+          </p>
+
+          <div class="hero-actions">
+            <a href="services.html" class="btn btn-primary">
+              View Services
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="contact.html" class="btn btn-outline">
+              Contact Us
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div>
+              <div class="hero-stat-value" data-count="50" data-suffix="+">50+</div>
+              <div class="hero-stat-label">Clients Served</div>
+            </div>
+            <div>
+              <div class="hero-stat-value" data-count="7" data-suffix="">7</div>
+              <div class="hero-stat-label">Core Services</div>
+            </div>
+            <div>
+              <div class="hero-stat-value" data-count="100" data-suffix="%">100%</div>
+              <div class="hero-stat-label">Data Accuracy</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Visual Cards -->
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card-group">
+
+            <!-- Main card -->
+            <div class="hero-card hero-card-main">
+              <div class="card-label">Financial Overview</div>
+              <div class="card-metric">PKR 2.4M</div>
+              <div class="card-metric-sub">↑ 18.4% vs last quarter</div>
+              <div class="mini-bar-chart">
+                <div class="mini-bar" style="height:30px"></div>
+                <div class="mini-bar" style="height:45px"></div>
+                <div class="mini-bar" style="height:35px"></div>
+                <div class="mini-bar" style="height:60px"></div>
+                <div class="mini-bar" style="height:40px"></div>
+                <div class="mini-bar" style="height:70px"></div>
+                <div class="mini-bar" style="height:50px"></div>
+              </div>
+            </div>
+
+            <!-- Float card 1 -->
+            <div class="hero-card hero-card-float-1">
+              <div class="card-icon-row">
+                <div class="card-icon card-icon-blue">📊</div>
+                <div class="card-icon card-icon-teal">🔗</div>
+              </div>
+              <div class="card-label">Analytics</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-navy);">Power BI</div>
+              <div style="font-size: 12px; color: var(--color-teal); margin-top: 4px;">Live Dashboards</div>
+            </div>
+
+            <!-- Float card 2 -->
+            <div class="hero-card hero-card-float-2">
+              <div class="card-icon card-icon-amber" style="margin-bottom: 10px;">⚡</div>
+              <div class="card-label">Automation</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-navy);">Python</div>
+              <div style="font-size: 12px; color: var(--color-primary); margin-top: 4px;">Workflow Ready</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         ABOUT SECTION
+         =========================== -->
+    <section class="about" id="about" aria-label="About">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Visual -->
+          <div class="about-visual fade-in">
+            <div class="about-img-container">
+              <div class="about-icon-grid">
+                <div class="about-icon-item">
+                  <div class="about-icon-box blue">📒</div>
+                  <div class="about-icon-label">Bookkeeping</div>
+                </div>
+                <div class="about-icon-item">
+                  <div class="about-icon-box teal">📈</div>
+                  <div class="about-icon-label">Reporting</div>
+                </div>
+                <div class="about-icon-item">
+                  <div class="about-icon-box navy">🔍</div>
+                  <div class="about-icon-label">Analytics</div>
+                </div>
+                <div class="about-icon-item">
+                  <div class="about-icon-box teal">📊</div>
+                  <div class="about-icon-label">Dashboards</div>
+                </div>
+                <div class="about-icon-item">
+                  <div class="about-icon-box blue">🗄️</div>
+                  <div class="about-icon-label">SQL Data</div>
+                </div>
+                <div class="about-icon-item">
+                  <div class="about-icon-box navy">⚙️</div>
+                  <div class="about-icon-label">Automation</div>
+                </div>
+              </div>
+            </div>
+            <div class="about-badge">
+              <div class="about-badge-num">ACCA</div>
+              <div class="about-badge-text">Foundation</div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="fade-in fade-in-delay-2">
+            <div class="section-label">About Us</div>
+            <h2 class="section-title">Finance, Data & Technology — Combined</h2>
+            <p class="section-subtitle">
+              Axiom Business Tech is a modern business solutions company that blends accounting expertise, data analytics, and technology to give businesses financial clarity and smarter decision-making.
+            </p>
+
+            <div class="about-features">
+              <div class="about-feature">
+                <div class="about-feature-icon">🏦</div>
+                <div>
+                  <div class="about-feature-title">Finance-First Approach</div>
+                  <div class="about-feature-text">Built on a strong ACCA foundation — we understand numbers the way your business needs them understood.</div>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon">💡</div>
+                <div>
+                  <div class="about-feature-title">Technology-Enabled Solutions</div>
+                  <div class="about-feature-text">We don't just report — we automate, visualize, and build systems that scale with your growth.</div>
+                </div>
+              </div>
+              <div class="about-feature">
+                <div class="about-feature-icon">🌍</div>
+                <div>
+                  <div class="about-feature-title">International Standard</div>
+                  <div class="about-feature-text">Serving clients in Pakistan, the UK, the USA, and beyond with professional-grade deliverables.</div>
+                </div>
+              </div>
+            </div>
+
+            <a href="about.html" class="btn btn-primary">
+              Learn More
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         SERVICES SECTION
+         =========================== -->
+    <section class="services" id="services" aria-label="Services">
+      <div class="container">
+        <div class="services-header fade-in">
+          <div class="section-label">What We Do</div>
+          <h2 class="section-title">Our Core Services</h2>
+          <p class="section-subtitle">Hover over a card to explore each service in detail.</p>
+        </div>
+
+        <div class="services-grid">
+
+          <!-- Card 1: Bookkeeping -->
+          <div class="flip-card fade-in fade-in-delay-1" role="article" aria-label="Bookkeeping and Accounting service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-blue">📒</div>
+                  <div class="service-title">Bookkeeping & Accounting</div>
+                </div>
+                <div>
+                  <div class="service-tag">Finance</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">Bookkeeping & Accounting</div>
+                <div class="service-desc">Accurate, up-to-date financial records maintained with professional precision. From daily transactions to monthly reconciliations.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Financial Reporting -->
+          <div class="flip-card fade-in fade-in-delay-2" role="article" aria-label="Financial Reporting service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-teal">📈</div>
+                  <div class="service-title">Financial Reporting</div>
+                </div>
+                <div>
+                  <div class="service-tag">Finance</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">Financial Reporting</div>
+                <div class="service-desc">Professional P&L statements, balance sheets, and cash flow reports that give you a clear picture of your financial health.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Data Analytics -->
+          <div class="flip-card fade-in fade-in-delay-3" role="article" aria-label="Data Analytics service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-indigo">🔍</div>
+                  <div class="service-title">Data Analytics</div>
+                </div>
+                <div>
+                  <div class="service-tag">Analytics</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">Data Analytics</div>
+                <div class="service-desc">Transform raw business data into actionable insights using advanced analysis techniques, trend detection, and data storytelling.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Power BI -->
+          <div class="flip-card fade-in fade-in-delay-1" role="article" aria-label="Power BI Dashboards service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-blue">📊</div>
+                  <div class="service-title">Power BI Dashboards</div>
+                </div>
+                <div>
+                  <div class="service-tag">Analytics</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">Power BI Dashboards</div>
+                <div class="service-desc">Interactive, real-time dashboards built in Power BI that connect your data sources and present KPIs visually for fast decisions.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: SQL -->
+          <div class="flip-card fade-in fade-in-delay-2" role="article" aria-label="SQL and Data Processing service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-teal">🗄️</div>
+                  <div class="service-title">SQL & Data Processing</div>
+                </div>
+                <div>
+                  <div class="service-tag">Technology</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">SQL & Data Processing</div>
+                <div class="service-desc">Database querying, cleaning, and transformation pipelines that make your data ready for analysis, reporting, or integration.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: Python Automation -->
+          <div class="flip-card fade-in fade-in-delay-3" role="article" aria-label="Python Automation service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-emerald">⚡</div>
+                  <div class="service-title">Python Automation</div>
+                </div>
+                <div>
+                  <div class="service-tag">Technology</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">Python Automation</div>
+                <div class="service-desc">Automate repetitive financial and data workflows using Python — from report generation to data extraction and scheduled tasks.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Business Intelligence -->
+          <div class="flip-card fade-in fade-in-delay-1" role="article" aria-label="Business Intelligence service">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <div>
+                  <div class="service-icon service-icon-indigo">🧠</div>
+                  <div class="service-title">Business Intelligence</div>
+                </div>
+                <div>
+                  <div class="service-tag">Strategy</div>
+                  <div class="flip-hint">↻ Hover to explore</div>
+                </div>
+              </div>
+              <div class="flip-card-back">
+                <div class="service-title-back">Business Intelligence</div>
+                <div class="service-desc">End-to-end BI solutions — from data infrastructure to executive dashboards — that turn your business into a data-driven operation.</div>
+                <a href="services.html" class="service-link">Read More →</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         WHY CHOOSE US
+         =========================== -->
+    <section class="why-us" id="why-us" aria-label="Why Choose Axiom">
+      <div class="container">
+        <div class="why-us-grid">
+
+          <!-- Left: Content -->
+          <div class="fade-in">
+            <div class="section-label">Why Axiom</div>
+            <h2 class="section-title">Built Different — For a Reason</h2>
+            <p class="section-subtitle">
+              We're not a generic agency. Every service we offer comes from a deep understanding of accounting, real data experience, and a technology mindset.
+            </p>
+            <br />
+            <a href="about.html" class="btn btn-primary">
+              Our Story
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right: Cards -->
+          <div class="why-us-cards">
+            <div class="why-card fade-in fade-in-delay-1">
+              <div class="why-card-icon">🎓</div>
+              <div class="why-card-title">ACCA-Based Expertise</div>
+              <div class="why-card-text">Our finance work is grounded in internationally recognized accounting standards — not guesswork.</div>
+            </div>
+            <div class="why-card fade-in fade-in-delay-2">
+              <div class="why-card-icon">📊</div>
+              <div class="why-card-title">Data-Driven Insights</div>
+              <div class="why-card-text">We go beyond numbers — we find the patterns and trends that help you make smarter decisions.</div>
+            </div>
+            <div class="why-card fade-in fade-in-delay-3">
+              <div class="why-card-icon">⚙️</div>
+              <div class="why-card-title">Tech-Enabled Systems</div>
+              <div class="why-card-text">From Power BI to Python, we build systems that save time and reduce errors at scale.</div>
+            </div>
+            <div class="why-card fade-in fade-in-delay-4">
+              <div class="why-card-icon">🚀</div>
+              <div class="why-card-title">Built to Scale</div>
+              <div class="why-card-text">Whether you're a startup or a growing SME, our solutions are designed to grow with your business.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         PORTFOLIO PREVIEW
+         =========================== -->
+    <section class="portfolio-preview" id="portfolio" aria-label="Portfolio Preview">
+      <div class="container">
+        <div class="portfolio-header">
+          <div>
+            <div class="section-label fade-in">Our Work</div>
+            <h2 class="section-title fade-in fade-in-delay-1">Recent Projects</h2>
+          </div>
+          <a href="portfolio.html" class="btn btn-outline fade-in fade-in-delay-2">View All Work</a>
+        </div>
+
+        <div class="portfolio-grid">
+
+          <!-- Project 1 -->
+          <article class="portfolio-card fade-in fade-in-delay-1">
+            <div class="portfolio-card-img bg-blue">📊</div>
+            <div class="portfolio-card-body">
+              <div class="portfolio-card-tag">Power BI · Analytics</div>
+              <h3 class="portfolio-card-title">Property Management Financial Dashboard</h3>
+              <p class="portfolio-card-desc">Built a real-time Power BI dashboard tracking rent collections, expenses, and NOI across 40+ units for a UK-based property manager.</p>
+              <a href="portfolio.html" class="portfolio-card-link">
+                View Details
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="portfolio-card fade-in fade-in-delay-2">
+            <div class="portfolio-card-img bg-teal">🤖</div>
+            <div class="portfolio-card-body">
+              <div class="portfolio-card-tag">Python · Automation</div>
+              <h3 class="portfolio-card-title">Automated Monthly Reporting System</h3>
+              <p class="portfolio-card-desc">Designed a Python script that pulls data from multiple sources, generates formatted financial reports, and emails them automatically each month.</p>
+              <a href="portfolio.html" class="portfolio-card-link">
+                View Details
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="portfolio-card fade-in fade-in-delay-3">
+            <div class="portfolio-card-img bg-indigo">📋</div>
+            <div class="portfolio-card-body">
+              <div class="portfolio-card-tag">Accounting · SQL</div>
+              <h3 class="portfolio-card-title">SME Financial Cleanup & Restructure</h3>
+              <p class="portfolio-card-desc">Cleaned 2 years of messy books for a startup, restructured their chart of accounts, and built a clean reporting model from scratch using Excel and SQL.</p>
+              <a href="portfolio.html" class="portfolio-card-link">
+                View Details
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         CTA SECTION
+         =========================== -->
+    <section class="cta-section" aria-label="Call to Action">
+      <div class="container">
+        <div class="cta-content fade-in">
+          <h2 class="cta-title">Ready to Bring Clarity to Your Finances?</h2>
+          <p class="cta-subtitle">
+            Let's talk about how Axiom Business Tech can help you build better financial systems, sharper analytics, and smarter business operations.
+          </p>
+          <div class="cta-actions">
+            <a href="contact.html" class="btn btn-teal">
+              Get in Touch
+              <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="services.html" class="btn btn-ghost">Explore Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===========================
+       FOOTER
+       =========================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Brand Column -->
+        <div>
+          <div class="footer-brand-logo" aria-label="Axiom Business Tech">A</div>
+          <p class="footer-tagline">Finance, Data & Technology — Built for Growing Businesses. Helping SMEs, startups, and founders operate with financial clarity.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="mailto:hello@axiombusinesstech.com" class="footer-social" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social" aria-label="Twitter / X">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html" class="footer-link">Bookkeeping</a></li>
+            <li><a href="services.html" class="footer-link">Financial Reporting</a></li>
+            <li><a href="services.html" class="footer-link">Data Analytics</a></li>
+            <li><a href="services.html" class="footer-link">Power BI</a></li>
+            <li><a href="services.html" class="footer-link">Automation</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li>
+              <a href="mailto:hello@axiombusinesstech.com" class="footer-link">
+                📧 hello@axiombusinesstech.com
+              </a>
+            </li>
+            <li>
+              <span class="footer-link" style="cursor:default">
+                📍 Punjab, Pakistan
+              </span>
+            </li>
+            <li>
+              <span class="footer-link" style="cursor:default">
+                🌐 Serving Globally
+              </span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span>Axiom Business Tech</span>. All rights reserved.</p>
+        <p class="footer-made">Finance · Data · Technology</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
