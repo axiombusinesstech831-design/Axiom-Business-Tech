@@ -18,8 +18,15 @@
   --color-border: #E0E0E0;
   --color-border-dark: #CCCCCC;
   --color-bg: #F7F7F7;
-  --color-bg-alt: #F0F0F0;
+  --color-bg-alt: #EEEEF5;
   --color-white: #FFFFFF;
+
+  /* Accent colors for non-theme elements */
+  --color-accent-blue: #3B82F6;
+  --color-accent-teal: #14B8A6;
+  --color-accent-indigo: #6366F1;
+  --color-accent-amber: #F59E0B;
+  --color-accent-emerald: #10B981;
 
   --color-primary: #0A0A0A;
   --color-primary-hover: #222222;
@@ -105,7 +112,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-black);
+  color: var(--color-accent-indigo);
   margin-bottom: 16px;
 }
 
@@ -113,7 +120,7 @@ button {
   content: '';
   width: 24px;
   height: 2px;
-  background: var(--color-black);
+  background: var(--color-accent-indigo);
   border-radius: 2px;
 }
 
@@ -183,29 +190,29 @@ button {
 }
 
 .btn-teal {
-  background: var(--color-white);
-  color: var(--color-black);
-  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
+  background: var(--color-accent-teal);
+  color: var(--color-white);
+  box-shadow: 0 4px 16px rgba(20, 184, 166, 0.3);
 }
 
 .btn-teal:hover {
-  background: var(--color-bg);
+  background: #0d9488;
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 28px rgba(20, 184, 166, 0.4);
 }
 
 .btn-ghost {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.9);
   background: transparent;
   padding: 14px 30px;
 }
 
 .btn-ghost:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
   color: white;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-icon {
@@ -470,7 +477,7 @@ button {
   pointer-events: none;
 }
 
-/* Soft grey background blobs */
+/* Soft colored background blobs */
 .hero-blob {
   position: absolute;
   border-radius: 50%;
@@ -483,7 +490,7 @@ button {
 .hero-blob-1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.05), transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08), transparent 70%);
   top: -150px;
   right: -100px;
   animation-delay: 0.2s;
@@ -492,7 +499,7 @@ button {
 .hero-blob-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.04), transparent 70%);
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.07), transparent 70%);
   bottom: 50px;
   left: -80px;
   animation-delay: 0.5s;
@@ -501,7 +508,7 @@ button {
 .hero-blob-3 {
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(0, 0, 0, 0.03), transparent 70%);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.05), transparent 70%);
   top: 40%;
   left: 35%;
   animation-delay: 0.8s;
@@ -546,7 +553,7 @@ button {
 .hero-badge-dot {
   width: 7px;
   height: 7px;
-  background: var(--color-black);
+  background: var(--color-accent-teal);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -570,6 +577,7 @@ button {
 .hero-title .highlight {
   position: relative;
   display: inline-block;
+  color: var(--color-accent-indigo);
 }
 
 .hero-title .highlight::after {
@@ -579,9 +587,9 @@ button {
   left: 0;
   width: 100%;
   height: 4px;
-  background: var(--color-black);
+  background: var(--color-accent-indigo);
   border-radius: 2px;
-  opacity: 0.15;
+  opacity: 0.25;
 }
 
 .hero-subtitle {
@@ -698,8 +706,8 @@ button {
 
 .card-metric-sub {
   font-size: 13px;
-  color: var(--color-mid);
-  font-weight: 500;
+  color: var(--color-accent-emerald);
+  font-weight: 600;
 }
 
 .card-icon-row {
@@ -719,10 +727,16 @@ button {
   background: var(--color-bg);
 }
 
-.card-icon-blue,
-.card-icon-teal,
+.card-icon-blue {
+  background: #EEF2FF;
+}
+
+.card-icon-teal {
+  background: #F0FDFA;
+}
+
 .card-icon-amber {
-  background: var(--color-bg);
+  background: #FFFBEB;
 }
 
 .mini-bar-chart {
@@ -736,7 +750,7 @@ button {
 .mini-bar {
   flex: 1;
   border-radius: 4px 4px 0 0;
-  background: var(--color-black);
+  background: linear-gradient(to top, var(--color-accent-indigo), var(--color-accent-blue));
   opacity: 0.75;
   transition: height 0.5s ease;
 }
@@ -816,10 +830,19 @@ button {
   background: var(--color-bg-alt);
 }
 
-.about-icon-box.blue,
-.about-icon-box.teal,
+.about-icon-box.blue {
+  background: #EEF2FF;
+  border-color: #C7D2FE;
+}
+
+.about-icon-box.teal {
+  background: #F0FDFA;
+  border-color: #99F6E4;
+}
+
 .about-icon-box.navy {
-  background: var(--color-white);
+  background: #EFF6FF;
+  border-color: #BFDBFE;
 }
 
 .about-icon-label {
@@ -846,12 +869,14 @@ button {
   font-size: 28px;
   font-weight: 800;
   line-height: 1;
+  color: white;
 }
 
 .about-badge-text {
   font-size: 12px;
-  opacity: 0.75;
+  opacity: 0.85;
   margin-top: 4px;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .about-features {
@@ -880,8 +905,8 @@ button {
   width: 42px;
   height: 42px;
   border-radius: 10px;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: #EEF2FF;
+  border: 1px solid #C7D2FE;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -990,12 +1015,24 @@ button {
   border: 1px solid var(--color-border);
 }
 
-.service-icon-blue,
-.service-icon-teal,
-.service-icon-indigo,
+.service-icon-blue {
+  background: #EEF2FF;
+  border-color: #C7D2FE;
+}
+
+.service-icon-teal {
+  background: #F0FDFA;
+  border-color: #99F6E4;
+}
+
+.service-icon-indigo {
+  background: #EDE9FE;
+  border-color: #DDD6FE;
+}
+
 .service-icon-emerald {
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  background: #ECFDF5;
+  border-color: #A7F3D0;
 }
 
 .service-title {
@@ -1009,9 +1046,9 @@ button {
 .service-tag {
   font-size: 11px;
   font-weight: 600;
-  color: var(--color-mid);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
+  color: var(--color-accent-indigo);
+  background: #EEF2FF;
+  border: 1px solid #C7D2FE;
   padding: 4px 10px;
   border-radius: var(--radius-full);
   width: fit-content;
@@ -1037,7 +1074,7 @@ button {
 .flip-card-back .service-desc {
   font-size: 14px;
   line-height: 1.65;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.82);
   flex: 1;
 }
 
@@ -1048,7 +1085,7 @@ button {
   font-size: 13px;
   font-weight: 600;
   color: white;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: 8px 16px;
   border-radius: var(--radius-full);
   transition: var(--transition);
@@ -1056,7 +1093,7 @@ button {
 }
 
 .flip-card-back .service-link:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.15);
 }
 
 /* ===========================
@@ -1097,7 +1134,7 @@ button {
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--color-black);
+  background: linear-gradient(90deg, var(--color-accent-indigo), var(--color-accent-teal));
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -1178,11 +1215,19 @@ button {
   overflow: hidden;
 }
 
-.portfolio-card-img.bg-blue,
-.portfolio-card-img.bg-teal,
+.portfolio-card-img.bg-blue {
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  border-bottom: 1px solid #C7D2FE;
+}
+
+.portfolio-card-img.bg-teal {
+  background: linear-gradient(135deg, #F0FDFA 0%, #CCFBF1 100%);
+  border-bottom: 1px solid #99F6E4;
+}
+
 .portfolio-card-img.bg-indigo {
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(135deg, #EDE9FE 0%, #DDD6FE 100%);
+  border-bottom: 1px solid #C4B5FD;
 }
 
 .portfolio-card-body {
@@ -1194,7 +1239,7 @@ button {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-mid);
+  color: var(--color-accent-indigo);
   margin-bottom: 10px;
 }
 
@@ -1220,12 +1265,13 @@ button {
   gap: 6px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-black);
+  color: var(--color-accent-indigo);
   transition: var(--transition);
 }
 
 .portfolio-card-link:hover {
   gap: 10px;
+  color: var(--color-accent-blue);
 }
 
 /* ===========================
@@ -1244,7 +1290,7 @@ button {
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12), transparent 70%);
   top: -200px;
   right: -100px;
   pointer-events: none;
@@ -1256,7 +1302,7 @@ button {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.03), transparent 70%);
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.10), transparent 70%);
   bottom: -100px;
   left: 0;
   pointer-events: none;
@@ -1281,7 +1327,7 @@ button {
 
 .cta-subtitle {
   font-size: 17px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
   line-height: 1.7;
   margin-bottom: 36px;
 }
@@ -1298,7 +1344,7 @@ button {
    =========================== */
 .footer {
   background: var(--color-black-soft);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   padding: 72px 0 0;
   border-top: 1px solid #1E1E1E;
 }
@@ -1329,7 +1375,7 @@ button {
 .footer-tagline {
   font-size: 13px;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   max-width: 260px;
   margin-bottom: 24px;
 }
@@ -1343,18 +1389,18 @@ button {
   width: 38px;
   height: 38px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 15px;
   transition: var(--transition);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .footer-social:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
   color: white;
   transform: translateY(-2px);
 }
@@ -1377,7 +1423,7 @@ button {
 
 .footer-link {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.55);
   transition: var(--transition);
   display: flex;
   align-items: center;
@@ -1385,7 +1431,7 @@ button {
 }
 
 .footer-link:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   transform: translateX(4px);
 }
 
@@ -1400,16 +1446,16 @@ button {
 
 .footer-copy {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .footer-copy span {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-made {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 /* ===========================
