@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/Assets/axiomlogo.svg" type="image/svg+xml">
+
+  <title>Contact — Axiom Business Tech</title>
+  <meta name="description" content="Get in touch with Axiom Business Tech. Reach us for bookkeeping, data analytics, Power BI dashboards, and Python automation services." />
+  <meta name="author" content="Axiom Business Tech" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── PAGE HERO ─────────────────────────────── */
+    .contact-hero {
+      padding: calc(var(--nav-height) + 72px) 0 72px;
+      background: var(--color-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    .contact-hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .contact-hero-blob-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.07), transparent 70%);
+      top: -150px; right: -80px;
+    }
+    .contact-hero-blob-2 {
+      width: 350px; height: 350px;
+      background: radial-gradient(circle, rgba(20,184,166,0.06), transparent 70%);
+      bottom: -80px; left: -60px;
+    }
+    .contact-hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .contact-hero-inner .section-label { justify-content: center; }
+    .contact-hero-inner .section-title { font-size: clamp(32px, 5vw, 52px); }
+    .contact-hero-inner .section-subtitle { margin: 0 auto; text-align: center; }
+
+    /* ── MAIN LAYOUT ────────────────────────────── */
+    .contact-section {
+      padding: 80px 0 100px;
+      background: var(--color-bg);
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ── LEFT PANEL ─────────────────────────────── */
+    .contact-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .contact-info-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .contact-info-card-title {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--color-accent-indigo);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contact-info-card-title::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: var(--color-accent-indigo);
+      border-radius: 2px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+      transition: var(--transition);
+    }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-item:hover { padding-left: 4px; }
+    .contact-item-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: #EEF2FF;
+      border: 1px solid #C7D2FE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .contact-item-icon.teal { background: #F0FDFA; border-color: #99F6E4; }
+    .contact-item-icon.amber { background: #FFFBEB; border-color: #FDE68A; }
+    .contact-item-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-muted);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .contact-item-value {
+      font-family: var(--font-heading);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-black);
+    }
+    .contact-item-value a {
+      color: var(--color-black);
+      transition: color 0.2s;
+    }
+    .contact-item-value a:hover { color: var(--color-accent-indigo); }
+
+    /* Social Links */
+    .socials-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .social-link:hover {
+      border-color: var(--color-accent-indigo);
+      background: #EEF2FF;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .social-link-icon {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .social-link-icon.linkedin { background: #0A66C2; }
+    .social-link-icon.facebook { background: #1877F2; }
+    .social-link-icon.instagram { background: linear-gradient(135deg, #833AB4, #FD1D1D, #FCB045); }
+    .social-link-icon.website  { background: var(--color-black); }
+    .social-link-text { font-family: var(--font-heading); font-size: 13px; font-weight: 600; color: var(--color-black); }
+    .social-link-handle { font-size: 11px; color: var(--color-muted); }
+
+    /* Founder card */
+    .founder-card {
+      background: var(--color-black);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      color: white;
+    }
+    .founder-card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 16px;
+    }
+    .founder-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      margin-bottom: 14px;
+    }
+    .founder-name {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 4px;
+    }
+    .founder-role {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+    .founder-socials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .founder-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255,255,255,0.2);
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .founder-social-btn:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.4);
+      color: white;
+    }
+
+    /* ── FORM PANEL ─────────────────────────────── */
+    .contact-form-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-card);
+    }
+    .form-title {
+      font-family: var(--font-heading);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--color-black);
+      margin-bottom: 6px;
+    }
+    .form-subtitle {
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label {
+      font-family: var(--font-heading);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-black);
+    }
+    .form-label span { color: var(--color-accent-indigo); }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-black);
+      background: var(--color-bg);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--color-accent-indigo);
+      box-shadow: 0 0 0 3px rgba(99,102,241,0.10);
+      background: var(--color-white);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+    .form-select { cursor: pointer; }
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--color-black);
+      color: white;
+      border: none;
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .form-submit:hover {
+      background: var(--color-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22);
+    }
+    .form-submit:active { transform: translateY(0); }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .form-success-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: #ECFDF5;
+      border: 2px solid #A7F3D0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin: 0 auto 20px;
+    }
+    .form-success-title {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-black);
+      margin-bottom: 8px;
+    }
+    .form-success-text {
+      font-size: 15px;
+      color: var(--color-muted);
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-form-card { padding: 28px 20px; }
+    }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; }
+      .socials-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
+        <img src="Assets/axiomlogo.png" alt="Axiom Business Tech Logo" class="nav-logo-img" />
+        <span class="nav-logo-text">Axiom Business Tech</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+      </ul>
+      <button id="hamburgerBtn" class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="nav-mobile">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="portfolio.html" class="nav-link">Portfolio</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="contact-hero">
+      <div class="contact-hero-grid" aria-hidden="true"></div>
+      <div class="contact-hero-blob contact-hero-blob-1" aria-hidden="true"></div>
+      <div class="contact-hero-blob contact-hero-blob-2" aria-hidden="true"></div>
+      <div class="container">
+        <div class="contact-hero-inner">
+          <div class="section-label">Get In Touch</div>
+          <h1 class="section-title">Let's Work Together</h1>
+          <p class="section-subtitle">
+            Have a project in mind or want to learn how Axiom can help your business? Fill out the form or reach us directly — we respond within 24 hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- LEFT: Info -->
+          <div class="contact-info-panel">
+
+            <!-- Direct Contact -->
+            <div class="contact-info-card fade-in">
+              <div class="contact-info-card-title">Direct Contact</div>
+              <div class="contact-item">
+                <div class="contact-item-icon">📧</div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div class="contact-item-value">
+                    <a href="mailto:axiombusinesstech831@gmail.com">axiombusinesstech831@gmail.com</a>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon teal">📍</div>
+                <div>
+                  <div class="contact-item-label">Location</div>
+                  <div class="contact-item-value">Punjab, Pakistan</div>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-item-icon amber">🌐</div>
+                <div>
+                  <div class="contact-item-label">Availability</div>
+                  <div class="contact-item-value">Serving Clients Globally</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Socials -->
+            <div class="contact-info-card fade-in fade-in-delay-1">
+              <div class="contact-info-card-title">Follow Axiom</div>
+              <div class="socials-grid">
+                <a href="https://www.linkedin.com/company/axiombusinesstech831" target="_blank" rel="noopener" class="social-link">
+                  <div class="social-link-icon linkedin">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                      <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                      <circle cx="4" cy="4" r="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="social-link-text">LinkedIn</div>
+                    <div class="social-link-handle">@axiombusinesstech831</div>
+                  </div>
+                </a>
+                <a href="https://www.facebook.com/axiombusinesstech831" target="_blank" rel="noopener" class="social-link">
+                  <div class="social-link-icon facebook">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+                      <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="social-link-text">Facebook</div>
+                    <div class="social-link-handle">@axiombusinesstech831</div>
+                  </div>
+                </a>
+                <a href="https://www.instagram.com/axiombusinesstech831" target="_blank" rel="noopener" class="social-link">
+                  <div class="social-link-icon instagram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                      <circle cx="12" cy="12" r="4"/>
+                      <circle cx="17.5" cy="6.5" r="0.5" fill="white"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="social-link-text">Instagram</div>
+                    <div class="social-link-handle">@axiombusinesstech831</div>
+                  </div>
+                </a>
+                <a href="mailto:axiombusinesstech831@gmail.com" class="social-link">
+                  <div class="social-link-icon website">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                      <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="social-link-text">Email Us</div>
+                    <div class="social-link-handle">Quick response</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <!-- Founder Card -->
+            <div class="founder-card fade-in fade-in-delay-2">
+              <div class="founder-card-label">Meet the Founder</div>
+              <div class="founder-avatar">AT</div>
+              <div class="founder-name">Awais Tahir</div>
+              <div class="founder-role">Founder & Lead Consultant — Axiom Business Tech</div>
+              <div class="founder-socials">
+                <a href="https://www.linkedin.com/in/iamawais1628" target="_blank" rel="noopener" class="founder-social-btn">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                    <circle cx="4" cy="4" r="2"/>
+                  </svg>
+                  LinkedIn
+                </a>
+                <a href="https://www.facebook.com/iamawais1628" target="_blank" rel="noopener" class="founder-social-btn">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                  </svg>
+                  Facebook
+                </a>
+                <a href="https://www.instagram.com/iamawais1628" target="_blank" rel="noopener" class="founder-social-btn">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+                  </svg>
+                  Instagram
+                </a>
+                <a href="https://www.iamawaistahir.com" target="_blank" rel="noopener" class="founder-social-btn">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                  </svg>
+                  Website
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Form -->
+          <div class="contact-form-card fade-in fade-in-delay-1">
+
+            <div id="formContent">
+              <div class="form-title">Send Us a Message</div>
+              <p class="form-subtitle">Tell us about your business needs and we'll get back to you within 24 hours.</p>
+
+              <form id="contactForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="firstName">First Name <span>*</span></label>
+                    <input class="form-input" type="text" id="firstName" name="firstName" placeholder="John" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="lastName">Last Name <span>*</span></label>
+                    <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Smith" required />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span>*</span></label>
+                  <input class="form-input" type="email" id="email" name="email" placeholder="john@company.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="company">Company / Business Name</label>
+                  <input class="form-input" type="text" id="company" name="company" placeholder="Your Company Ltd." />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="service">Service You're Interested In <span>*</span></label>
+                  <select class="form-select" id="service" name="service" required>
+                    <option value="" disabled selected>Select a service…</option>
+                    <option value="bookkeeping">Bookkeeping &amp; Accounting</option>
+                    <option value="reporting">Financial Reporting</option>
+                    <option value="analytics">Data Analytics</option>
+                    <option value="powerbi">Power BI Dashboards</option>
+                    <option value="sql">SQL &amp; Data Processing</option>
+                    <option value="automation">Python Automation</option>
+                    <option value="other">Other / Not Sure Yet</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="message">Message <span>*</span></label>
+                  <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your business, what you need help with, and any relevant details…" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">
+                  Send Message
+                  <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </form>
+            </div>
+
+            <!-- Success state -->
+            <div class="form-success" id="formSuccess">
+              <div class="form-success-icon">✓</div>
+              <div class="form-success-title">Message Sent!</div>
+              <p class="form-success-text">Thanks for reaching out. We'll review your message and get back to you within 24 hours at the email you provided.</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-logo" aria-label="Axiom Business Tech">A</div>
+          <p class="footer-tagline">Finance, Data & Technology — Built for Growing Businesses. Helping SMEs, startups, and founders operate with financial clarity.</p>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/company/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
+            </a>
+            <a href="mailto:axiombusinesstech831@gmail.com" class="footer-social" aria-label="Email">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </a>
+            <a href="https://www.instagram.com/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html" class="footer-link">Bookkeeping</a></li>
+            <li><a href="services.html" class="footer-link">Financial Reporting</a></li>
+            <li><a href="services.html" class="footer-link">Data Analytics</a></li>
+            <li><a href="services.html" class="footer-link">Power BI</a></li>
+            <li><a href="services.html" class="footer-link">Automation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="mailto:axiombusinesstech831@gmail.com" class="footer-link">📧 axiombusinesstech831@gmail.com</a></li>
+            <li><span class="footer-link" style="cursor:default">📍 Punjab, Pakistan</span></li>
+            <li><span class="footer-link" style="cursor:default">🌐 Serving Globally</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 <span>Axiom Business Tech</span>. All rights reserved.</p>
+        <p class="footer-made">Finance · Data · Technology</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ── MOBILE MENU ───────────────────────────────
+    var btn  = document.getElementById('hamburgerBtn');
+    var menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.onclick = function (e) {
+        e.stopPropagation();
+        var isOpen = menu.style.display === 'flex';
+        menu.style.display = isOpen ? 'none' : 'flex';
+        btn.classList.toggle('open', !isOpen);
+      };
+      menu.querySelectorAll('a').forEach(function (a) {
+        a.onclick = function () { menu.style.display = 'none'; btn.classList.remove('open'); };
+      });
+      document.addEventListener('click', function (e) {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.style.display = 'none'; btn.classList.remove('open');
+        }
+      });
+    }
+
+    // ── NAVBAR SCROLL ─────────────────────────────
+    var navbar = document.querySelector('.navbar');
+    if (navbar) {
+      window.addEventListener('scroll', function () {
+        navbar.classList.toggle('scrolled', window.scrollY > 20);
+      }, { passive: true });
+    }
+
+    // ── FADE IN ───────────────────────────────────
+    function revealVisible() {
+      document.querySelectorAll('.fade-in').forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight + 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealVisible, { passive: true });
+    revealVisible();
+
+    // ── CONTACT FORM ──────────────────────────────
+    var form    = document.getElementById('contactForm');
+    var content = document.getElementById('formContent');
+    var success = document.getElementById('formSuccess');
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basic validation
+        var valid = true;
+        form.querySelectorAll('[required]').forEach(function (field) {
+          field.style.borderColor = '';
+          if (!field.value.trim()) {
+            field.style.borderColor = '#EF4444';
+            valid = false;
+          }
+        });
+        if (!valid) return;
+
+        // Simulate send (replace with real backend / EmailJS / Formspree)
+        var submitBtn = form.querySelector('.form-submit');
+        submitBtn.textContent = 'Sending…';
+        submitBtn.disabled = true;
+
+        setTimeout(function () {
+          content.style.display = 'none';
+          success.style.display = 'block';
+        }, 1200);
+      });
+    }
+  </script>
+
+</body>
+</html>
