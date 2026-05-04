@@ -41,12 +41,7 @@
 
       <!-- Logo -->
       <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
-        <!-- Replace src with your logo file: assets/logo.png -->
-        <!-- If you have a logo image, use:
         <img src="Assets/axiomlogo.png" alt="Axiom Business Tech Logo" class="nav-logo-img" />
-        -->
-
-     <img src="Assets/axiomlogo.png" alt="Axiom Business Tech Logo" class="nav-logo-img" />
         <span class="nav-logo-text">Axiom Business Tech</span>
       </a>
 
@@ -66,16 +61,16 @@
         <span></span>
       </button>
     </div>
-  </nav>
 
-  <!-- Mobile Menu -->
-  <div class="nav-mobile" role="menu" aria-label="Mobile navigation">
-    <a href="index.html" class="nav-link active" role="menuitem">Home</a>
-    <a href="about.html" class="nav-link" role="menuitem">About</a>
-    <a href="services.html" class="nav-link" role="menuitem">Services</a>
-    <a href="portfolio.html" class="nav-link" role="menuitem">Portfolio</a>
-    <a href="contact.html" class="nav-cta" role="menuitem">Contact Us</a>
-  </div>
+    <!-- Mobile Menu — INSIDE <nav> so outside-click works correctly -->
+    <div class="nav-mobile" role="menu" aria-label="Mobile navigation">
+      <a href="index.html" class="nav-link active" role="menuitem">Home</a>
+      <a href="about.html" class="nav-link" role="menuitem">About</a>
+      <a href="services.html" class="nav-link" role="menuitem">Services</a>
+      <a href="portfolio.html" class="nav-link" role="menuitem">Portfolio</a>
+      <a href="contact.html" class="nav-cta" role="menuitem">Contact Us</a>
+    </div>
+  </nav>
 
   <main>
 
@@ -160,16 +155,16 @@
                 <div class="card-icon card-icon-teal">🔗</div>
               </div>
               <div class="card-label">Analytics</div>
-              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-navy);">Power BI</div>
-              <div style="font-size: 12px; color: var(--color-teal); margin-top: 4px;">Live Dashboards</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-black);">Power BI</div>
+              <div style="font-size: 12px; color: var(--color-accent-teal); margin-top: 4px;">Live Dashboards</div>
             </div>
 
             <!-- Float card 2 -->
             <div class="hero-card hero-card-float-2">
               <div class="card-icon card-icon-amber" style="margin-bottom: 10px;">⚡</div>
               <div class="card-label">Automation</div>
-              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-navy);">Python</div>
-              <div style="font-size: 12px; color: var(--color-primary); margin-top: 4px;">Workflow Ready</div>
+              <div style="font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-black);">Python</div>
+              <div style="font-size: 12px; color: var(--color-accent-indigo); margin-top: 4px;">Workflow Ready</div>
             </div>
 
           </div>
@@ -286,7 +281,7 @@
                 </div>
                 <div>
                   <div class="service-tag">Finance</div>
-                  <div class="flip-hint">↻ Hover to explore</div>
+                  <div class="flip-hint">↻ Tap to explore</div>
                 </div>
               </div>
               <div class="flip-card-back">
@@ -307,7 +302,7 @@
                 </div>
                 <div>
                   <div class="service-tag">Finance</div>
-                  <div class="flip-hint">↻ Hover to explore</div>
+                  <div class="flip-hint">↻ Tap to explore</div>
                 </div>
               </div>
               <div class="flip-card-back">
@@ -328,7 +323,7 @@
                 </div>
                 <div>
                   <div class="service-tag">Analytics</div>
-                  <div class="flip-hint">↻ Hover to explore</div>
+                  <div class="flip-hint">↻ Tap to explore</div>
                 </div>
               </div>
               <div class="flip-card-back">
@@ -349,7 +344,7 @@
                 </div>
                 <div>
                   <div class="service-tag">Analytics</div>
-                  <div class="flip-hint">↻ Hover to explore</div>
+                  <div class="flip-hint">↻ Tap to explore</div>
                 </div>
               </div>
               <div class="flip-card-back">
@@ -370,7 +365,7 @@
                 </div>
                 <div>
                   <div class="service-tag">Technology</div>
-                  <div class="flip-hint">↻ Hover to explore</div>
+                  <div class="flip-hint">↻ Tap to explore</div>
                 </div>
               </div>
               <div class="flip-card-back">
@@ -391,7 +386,7 @@
                 </div>
                 <div>
                   <div class="service-tag">Technology</div>
-                  <div class="flip-hint">↻ Hover to explore</div>
+                  <div class="flip-hint">↻ Tap to explore</div>
                 </div>
               </div>
               <div class="flip-card-back">
@@ -402,7 +397,8 @@
             </div>
           </div>
 
-      
+        </div>
+      </div>
     </section>
 
     <!-- ===========================
@@ -657,5 +653,6 @@
       }
       window.addEventListener('scroll', revealVisible, { passive: true });
     })();
-  </script></body>
+  </script>
+</body>
 </html>
