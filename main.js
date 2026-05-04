@@ -11,11 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
     }, { passive: true });
   }
 
@@ -33,30 +29,59 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ===========================
-  // NAVBAR — Mobile Menu
+  // NAVBAR — Mobile Menu (FIXED)
   // ===========================
   const hamburger = document.querySelector('.nav-hamburger');
   const mobileMenu = document.querySelector('.nav-mobile');
 
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
+
+    function openMenu() {
+      hamburger.classList.add('open');
+      mobileMenu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    function toggleMenu() {
+      if (mobileMenu.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    }
+
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
     });
 
-    // Close menu on link click
+    // Close menu when any mobile nav link is clicked
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
+      link.addEventListener('click', closeMenu);
     });
 
-    // Close on outside click
+    // Close when clicking anywhere outside the menu or hamburger
     document.addEventListener('click', (e) => {
-      if (!navbar.contains(e.target) && !mobileMenu.contains(e.target)) {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
+      if (
+        mobileMenu.classList.contains('open') &&
+        !mobileMenu.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMenu();
+        hamburger.focus();
       }
     });
   }
@@ -67,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const fadeEls = document.querySelectorAll('.fade-in');
 
   if (fadeEls.length > 0) {
-    // Check if IntersectionObserver is supported
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -83,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
       fadeEls.forEach(el => observer.observe(el));
     } else {
-      // Fallback: show all immediately if no IntersectionObserver support
       fadeEls.forEach(el => el.classList.add('visible'));
     }
   }
@@ -107,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===========================
   const counters = document.querySelectorAll('[data-count]');
 
-  if (counters.length > 0) {
+  if (counters.length > 0 && 'IntersectionObserver' in window) {
     const countObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -141,21 +164,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const flipCards = document.querySelectorAll('.flip-card');
 
   flipCards.forEach(card => {
-    let isTouching = false;
-
-    card.addEventListener('touchstart', () => {
-      isTouching = true;
-    }, { passive: true });
-
-    card.addEventListener('touchend', () => {
-      if (isTouching) {
+    card.addEventListener('touchend', (e) => {
+      // Only toggle if not tapping a link inside the card
+      if (!e.target.closest('a')) {
+        e.preventDefault();
         card.classList.toggle('flipped');
-        isTouching = false;
       }
-    });
+    }, { passive: false });
   });
 
-  // Also support CSS class for mobile tap
   const style = document.createElement('style');
   style.textContent = `
     .flip-card.flipped .flip-card-inner {
@@ -185,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ===========================
-  // LOGO HOVER — Name Reveal (Already CSS-driven, this adds aria)
+  // LOGO — Aria Label
   // ===========================
   const navLogo = document.querySelector('.nav-logo');
   if (navLogo) {
