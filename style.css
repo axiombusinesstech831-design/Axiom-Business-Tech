@@ -432,9 +432,12 @@ body::before {
   display:flex; align-items:flex-end; justify-content:space-between;
   margin-bottom:52px; flex-wrap:wrap; gap:20px;
 }
+.showcase-header-left {}
+.showcase-header-right { padding-bottom:8px; }
+
 .showcase-grid {
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:16px;
   margin-bottom:44px;
 }
@@ -1002,18 +1005,4 @@ body::before {
   .hero-stat + .hero-stat { border-left:none; border-top:1px solid var(--border); padding-left:0; padding-top:20px; }
   .cta-actions { flex-direction:column; align-items:center; }
   .hero-actions { flex-direction:column; }
-}
-
-
-/* Fallback: if JS never fires, show content */
-@media (prefers-reduced-motion: reduce) {
-  .fade-up, .fade-in {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-/* Emergency fallback for broken JS */
-.fade-up, .fade-in {
-  transition: opacity .7s ease, transform .7s ease;
 }
