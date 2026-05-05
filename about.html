@@ -1,490 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="/Assets/axiomlogo.svg" type="image/svg+xml">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="Assets/axiomlogo.svg" type="image/svg+xml"/>
   <title>About Us — Axiom Business Tech</title>
-  <meta name="description" content="Learn about Axiom Business Tech — our story, mission, vision, and the founder behind the company. A modern finance, data and technology firm built for growing businesses." />
-  <meta name="keywords" content="Axiom Business Tech, about us, Awais Tahir, ACCA, finance technology, data analytics, business solutions Pakistan" />
-  <meta name="author" content="Axiom Business Tech" />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="About Us — Axiom Business Tech" />
-  <meta property="og:description" content="Finance, Data & Technology — Built for Growing Businesses" />
-  <meta property="og:type" content="website" />
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="apple-touch-icon" href="assets/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .page-hero { padding: calc(var(--nav-height) + 80px) 0 80px; background: var(--color-white); position: relative; overflow: hidden; }
-    .page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
-    .page-hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .page-hero-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-full); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-black); margin-bottom: 24px; }
-    .page-hero-title { font-family: var(--font-heading); font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.12; color: var(--color-black); margin-bottom: 24px; }
-    .page-hero-title span { position: relative; display: inline-block; }
-    .page-hero-title span::after { content: ""; position: absolute; bottom: 4px; left: 0; width: 100%; height: 4px; background: var(--color-black); border-radius: 2px; opacity: 0.12; }
-    .page-hero-subtitle { font-size: 18px; color: var(--color-muted); line-height: 1.75; max-width: 600px; }
-    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-muted); margin-bottom: 32px; }
-    .breadcrumb a { color: var(--color-muted); transition: var(--transition); }
-    .breadcrumb a:hover { color: var(--color-black); }
-    .breadcrumb-sep { font-size: 10px; opacity: 0.5; }
-    .breadcrumb-current { color: var(--color-black); font-weight: 500; }
-    .story-section { padding: var(--section-padding); background: var(--color-white); }
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-    .story-img-box { background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 48px 40px; position: relative; }
-    .story-year-line { display: flex; flex-direction: column; gap: 0; }
-    .story-year-item { display: flex; gap: 20px; position: relative; }
-    .story-year-item:not(:last-child)::after { content: ""; position: absolute; left: 19px; top: 40px; width: 2px; height: calc(100% - 8px); background: var(--color-border); }
-    .story-year-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--color-white); border: 2px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; z-index: 1; transition: var(--transition); }
-    .story-year-item:hover .story-year-dot { background: var(--color-black); border-color: var(--color-black); color: white; }
-    .story-year-body { padding: 8px 0 32px; }
-    .story-year-label { font-family: var(--font-heading); font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 6px; }
-    .story-year-title { font-family: var(--font-heading); font-size: 16px; font-weight: 700; color: var(--color-black); margin-bottom: 6px; }
-    .story-year-text { font-size: 14px; color: var(--color-muted); line-height: 1.65; }
-    .story-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 8px; }
-    .story-stat-box { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 20px; text-align: center; transition: var(--transition); }
-    .story-stat-box:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
-    .story-stat-num { font-family: var(--font-heading); font-size: 26px; font-weight: 800; color: var(--color-black); line-height: 1; margin-bottom: 4px; }
-    .story-stat-label { font-size: 12px; color: var(--color-muted); }
-    .story-text p { font-size: 16px; color: var(--color-muted); line-height: 1.8; margin-bottom: 20px; }
-    .story-text p:last-child { margin-bottom: 0; }
-    .story-text strong { color: var(--color-black); font-weight: 600; }
-    .mv-section { padding: var(--section-padding); background: var(--color-bg); }
-    .mv-header { text-align: center; max-width: 600px; margin: 0 auto 60px; }
-    .mv-header .section-label { justify-content: center; }
-    .mv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .mv-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 40px 32px; transition: var(--transition); position: relative; overflow: hidden; }
-    .mv-card::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--color-black); opacity: 0; transition: opacity 0.3s; }
-    .mv-card:hover { box-shadow: var(--shadow-md); transform: translateY(-6px); }
-    .mv-card:hover::after { opacity: 1; }
-    .mv-card-icon { width: 56px; height: 56px; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 24px; transition: var(--transition); }
-    .mv-card:hover .mv-card-icon { background: var(--color-black); }
-    .mv-card-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 10px; }
-    .mv-card-title { font-family: var(--font-heading); font-size: 20px; font-weight: 700; color: var(--color-black); margin-bottom: 14px; }
-    .mv-card-text { font-size: 15px; color: var(--color-muted); line-height: 1.75; }
-    .values-section { padding: var(--section-padding); background: var(--color-white); }
-    .values-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 64px; }
-    .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .value-card { padding: 28px 24px; border: 1px solid var(--color-border); border-radius: var(--radius-lg); background: var(--color-bg); transition: var(--transition); text-align: center; }
-    .value-card:hover { background: var(--color-black); border-color: var(--color-black); transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .value-card:hover .value-icon, .value-card:hover .value-title, .value-card:hover .value-text { color: white; }
-    .value-icon { font-size: 30px; margin-bottom: 14px; display: block; transition: var(--transition); }
-    .value-title { font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: var(--color-black); margin-bottom: 8px; transition: var(--transition); }
-    .value-text { font-size: 13px; color: var(--color-muted); line-height: 1.6; transition: var(--transition); }
-    .founder-section { padding: var(--section-padding); background: var(--color-bg); }
-    .founder-grid { display: grid; grid-template-columns: 400px 1fr; gap: 80px; align-items: start; }
-    .founder-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-card); position: sticky; top: calc(var(--nav-height) + 24px); }
-    .founder-photo { width: 100%; aspect-ratio: 1/1; background: var(--color-bg-alt); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--color-border); }
-    .founder-photo-placeholder { width: 100%; height: 100%; background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-bg-alt) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
-    .founder-photo-initials { width: 100px; height: 100px; border-radius: 50%; background: var(--color-black); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 36px; font-weight: 800; color: white; }
-    .founder-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .founder-card-body { padding: 28px; }
-    .founder-name { font-family: var(--font-heading); font-size: 22px; font-weight: 800; color: var(--color-black); margin-bottom: 4px; }
-    .founder-role { font-size: 14px; color: var(--color-muted); margin-bottom: 16px; }
-    .founder-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .founder-badge { font-size: 11px; font-weight: 600; padding: 5px 12px; border-radius: var(--radius-full); border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-mid); }
-    .founder-socials { display: flex; gap: 10px; padding-top: 16px; border-top: 1px solid var(--color-border); }
-    .founder-social { width: 38px; height: 38px; border-radius: var(--radius-sm); border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; color: var(--color-mid); transition: var(--transition); }
-    .founder-social:hover { background: var(--color-black); border-color: var(--color-black); color: white; transform: translateY(-2px); }
-    .founder-content .section-label { margin-bottom: 8px; }
-    .founder-content h2 { font-family: var(--font-heading); font-size: clamp(26px, 3.5vw, 38px); font-weight: 800; color: var(--color-black); line-height: 1.2; margin-bottom: 24px; }
-    .founder-bio { font-size: 16px; color: var(--color-muted); line-height: 1.8; margin-bottom: 16px; }
-    .founder-bio strong { color: var(--color-black); font-weight: 600; }
-    .founder-focus { margin: 32px 0; padding: 28px; background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
-    .founder-focus-title { font-family: var(--font-heading); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-black); margin-bottom: 16px; }
-    .founder-focus-list { display: flex; flex-direction: column; gap: 12px; }
-    .founder-focus-item { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--color-dark); }
-    .founder-focus-item::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--color-black); flex-shrink: 0; }
-    .founder-vision-box { background: var(--color-black); border-radius: var(--radius-lg); padding: 32px; margin-top: 8px; }
-    .founder-vision-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
-    .founder-vision-text { font-family: var(--font-heading); font-size: 17px; font-weight: 600; color: white; line-height: 1.65; }
-    .future-section { padding: var(--section-padding); background: var(--color-white); }
-    .future-header { text-align: center; max-width: 640px; margin: 0 auto 60px; }
-    .future-header .section-label { justify-content: center; }
-    .future-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
-    .future-card { border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px 28px; background: var(--color-white); transition: var(--transition); position: relative; overflow: hidden; }
-    .future-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--color-black); opacity: 0; transition: opacity 0.3s; }
-    .future-card:hover { box-shadow: var(--shadow-card); transform: translateY(-4px); background: var(--color-bg); }
-    .future-card:hover::before { opacity: 1; }
-    .future-card-num { font-family: var(--font-heading); font-size: 42px; font-weight: 800; color: var(--color-border); line-height: 1; margin-bottom: 16px; transition: var(--transition); }
-    .future-card:hover .future-card-num { color: var(--color-black); opacity: 0.12; }
-    .future-card-title { font-family: var(--font-heading); font-size: 17px; font-weight: 700; color: var(--color-black); margin-bottom: 10px; }
-    .future-card-text { font-size: 14px; color: var(--color-muted); line-height: 1.7; }
-    .future-card-tag { display: inline-flex; margin-top: 16px; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: var(--radius-full); border: 1px solid var(--color-border); color: var(--color-mid); }
-    .about-cta-banner { background: var(--color-black); border-radius: var(--radius-lg); padding: 52px 60px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-    .about-cta-text h3 { font-family: var(--font-heading); font-size: clamp(20px, 3vw, 28px); font-weight: 800; color: white; margin-bottom: 8px; }
-    .about-cta-text p { font-size: 15px; color: rgba(255,255,255,0.6); }
-    @media (max-width: 1024px) {
-      .story-grid { grid-template-columns: 1fr; gap: 50px; }
-      .mv-grid { grid-template-columns: 1fr 1fr; }
-      .values-grid { grid-template-columns: repeat(2, 1fr); }
-      .values-header { grid-template-columns: 1fr; gap: 32px; }
-      .founder-grid { grid-template-columns: 1fr; gap: 48px; }
-      .founder-card { position: static; }
-      .founder-photo { aspect-ratio: 4/3; }
-      .future-grid { grid-template-columns: 1fr 1fr; }
-      .about-cta-banner { padding: 40px; }
-    }
-    @media (max-width: 768px) {
-      .mv-grid { grid-template-columns: 1fr; }
-      .values-grid { grid-template-columns: 1fr 1fr; }
-      .future-grid { grid-template-columns: 1fr; }
-      .about-cta-banner { flex-direction: column; text-align: center; padding: 36px 28px; }
-    }
-    @media (max-width: 480px) {
-      .values-grid { grid-template-columns: 1fr; }
-      .story-stat-row { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <meta name="description" content="Learn about Axiom Business Tech — our story, mission, values, and the founder. A modern finance, data, and technology firm built for growing businesses."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 
-  <nav class="navbar" role="navigation" aria-label="Main navigation">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
-        <img src="Assets/axiomlogo.png" alt="Axiom Business Tech Logo" class="nav-logo-img" />
-        <span class="nav-logo-text">Axiom Business Tech</span>
-      </a>
-      <ul class="nav-links" role="list">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="about.html" class="nav-link active">About</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-      </ul>
-      <button id="hamburgerBtn" class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<nav class="navbar" id="mainNav" role="navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
+      <img src="Assets/axiomlogo.png" alt="Axiom Business Tech" class="nav-logo-img" onerror="this.style.display='none'"/>
+      <span class="nav-logo-text">Axiom Business Tech</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link active">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button id="hamburgerBtn" class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="nav-mobile">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link active">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link">Portfolio</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="page-hero" aria-label="About hero">
+  <div class="page-hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="breadcrumb">
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">About Us</span>
     </div>
-    <div id="mobileMenu" class="nav-mobile">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link active">About</a>
-      <a href="services.html" class="nav-link">Services</a>
-      <a href="portfolio.html" class="nav-link">Portfolio</a>
-      <a href="contact.html" class="nav-cta">Contact Us</a>
+    <div class="page-hero-content fade-up">
+      <div class="section-label">Our Story</div>
+      <h1 class="section-title">Building the Bridge Between<br/><span class="grad">Finance & Technology</span></h1>
+      <p class="section-subtitle">Axiom Business Tech is a modern business solutions company that combines accounting expertise, data analytics, and technology — helping businesses operate with clarity, efficiency, and confidence.</p>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <main>
-
-    <section class="page-hero" aria-label="About page hero">
-      <div class="page-hero-grid" aria-hidden="true"></div>
-      <div class="container">
-        <div class="breadcrumb">
-          <span class="breadcrumb-sep">›</span>
-          <span class="breadcrumb-current">About Us</span>
-        </div>
-        <div class="page-hero-content">
-          <div class="page-hero-tag"><span>Our Story</span></div>
-          <h1 class="page-hero-title">We Build the Bridge Between <span>Finance & Technology</span></h1>
-          <p class="page-hero-subtitle">Axiom Business Tech is a modern business solutions company that combines accounting expertise, data analytics, and technology — helping businesses operate with clarity, efficiency, and confidence.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="story-section" aria-label="Company story">
-      <div class="container">
-        <div class="story-grid">
-          <div class="fade-in">
-            <div class="story-img-box">
-              <div class="story-year-line">
-                <div class="story-year-item">
-                  <div class="story-year-dot">🌱</div>
-                  <div class="story-year-body">
-                    <div class="story-year-label">The Beginning</div>
-                    <div class="story-year-title">Foundation Built on Finance</div>
-                    <div class="story-year-text">Axiom started from a deep passion for accounting and financial systems — studying ACCA while building real-world expertise in bookkeeping, reporting, and business analysis.</div>
-                  </div>
-                </div>
-                <div class="story-year-item">
-                  <div class="story-year-dot">📊</div>
-                  <div class="story-year-body">
-                    <div class="story-year-label">The Evolution</div>
-                    <div class="story-year-title">Finance Meets Data</div>
-                    <div class="story-year-text">Recognizing that numbers alone aren't enough, we expanded into data analytics, Power BI dashboards, SQL, and Python — turning financial data into actionable business intelligence.</div>
-                  </div>
-                </div>
-                <div class="story-year-item">
-                  <div class="story-year-dot">🚀</div>
-                  <div class="story-year-body">
-                    <div class="story-year-label">Today & Beyond</div>
-                    <div class="story-year-title">A Full Business Solutions Firm</div>
-                    <div class="story-year-text">Today, Axiom serves SMEs, startups, and international clients — delivering integrated solutions across finance, data, and technology automation.</div>
-                  </div>
-                </div>
+<!-- ── STORY SECTION ────────────────────────────────– -->
+<section class="story-section" aria-label="Company story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="fade-up">
+        <div class="story-box">
+          <div class="story-year-line">
+            <div class="story-item">
+              <div class="story-dot">🌱</div>
+              <div class="story-body">
+                <div class="story-year-label">The Beginning</div>
+                <div class="story-year-title">Foundation Built on Finance</div>
+                <div class="story-year-text">Axiom started from a deep passion for accounting and financial systems — studying ACCA while building real-world expertise in bookkeeping, reporting, and business analysis.</div>
               </div>
-              <div class="story-stat-row">
-                <div class="story-stat-box"><div class="story-stat-num" data-count="50" data-suffix="+">50+</div><div class="story-stat-label">Clients Served</div></div>
-                <div class="story-stat-box"><div class="story-stat-num" data-count="6" data-suffix="">6</div><div class="story-stat-label">Core Services</div></div>
-                <div class="story-stat-box"><div class="story-stat-num" data-count="3" data-suffix="">3</div><div class="story-stat-label">Domains Covered</div></div>
-                <div class="story-stat-box"><div class="story-stat-num" data-count="100" data-suffix="%">100%</div><div class="story-stat-label">Client Focus</div></div>
+            </div>
+            <div class="story-item">
+              <div class="story-dot">📊</div>
+              <div class="story-body">
+                <div class="story-year-label">The Evolution</div>
+                <div class="story-year-title">Finance Meets Data</div>
+                <div class="story-year-text">Recognizing that numbers alone aren't enough, we expanded into data analytics, Power BI dashboards, SQL, and Python — turning financial data into actionable business intelligence.</div>
+              </div>
+            </div>
+            <div class="story-item">
+              <div class="story-dot">🚀</div>
+              <div class="story-body">
+                <div class="story-year-label">Today & Beyond</div>
+                <div class="story-year-title">A Full Business Solutions Firm</div>
+                <div class="story-year-text">Today, Axiom serves SMEs, startups, and international clients — delivering integrated solutions across finance, data, and technology automation.</div>
               </div>
             </div>
           </div>
-
-          <div class="story-text fade-in fade-in-delay-2">
-            <div class="section-label">Who We Are</div>
-            <h2 class="section-title">More Than a Service Provider — We're a Strategic Partner</h2>
-            <p><strong>Axiom Business Tech</strong> was founded on a simple but powerful belief: that small and growing businesses deserve access to the same quality of financial systems and data intelligence that large corporations use.</p>
-            <p>We combine a strong <strong>ACCA-based accounting foundation</strong> with modern technology tools — Power BI, Python, SQL, and automation frameworks — to deliver solutions that are both financially sound and technically powerful.</p>
-            <p>Whether you're a startup needing clean bookkeeping, an SME looking for business intelligence dashboards, or a growing company wanting to automate your financial workflows — <strong>Axiom has the expertise to deliver</strong>.</p>
-            <p>Our clients span Pakistan, the United Kingdom, the United States, and beyond. We work with property managers, service-based companies, founders, and CEOs who are serious about running data-driven, financially clear operations.</p>
-            <div style="margin-top:36px">
-              <a href="services.html" class="btn btn-primary">Explore Our Services <svg class="btn-icon" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            </div>
+          <div class="story-stat-row">
+            <div class="story-stat-box"><div class="story-stat-num" data-count="50" data-suffix="+">50+</div><div class="story-stat-label">Clients Served</div></div>
+            <div class="story-stat-box"><div class="story-stat-num" data-count="6" data-suffix="">6</div><div class="story-stat-label">Core Services</div></div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="mv-section" aria-label="Mission and Vision">
-      <div class="container">
-        <div class="mv-header fade-in">
-          <div class="section-label">Our Direction</div>
-          <h2 class="section-title">Mission, Vision & Purpose</h2>
-          <p class="section-subtitle">Three pillars that define everything we build, every client we serve, and every decision we make.</p>
-        </div>
-        <div class="mv-grid">
-          <div class="mv-card fade-in fade-in-delay-1">
-            <div class="mv-card-icon">🎯</div>
-            <div class="mv-card-label">Our Mission</div>
-            <div class="mv-card-title">Deliver Financial Clarity Through Technology</div>
-            <div class="mv-card-text">To provide businesses with accurate financial records, intelligent data systems, and technology-driven solutions that simplify operations and support smart decision-making — at every stage of growth.</div>
-          </div>
-          <div class="mv-card fade-in fade-in-delay-2">
-            <div class="mv-card-icon">🔭</div>
-            <div class="mv-card-label">Our Vision</div>
-            <div class="mv-card-title">A Globally Recognized Finance-Tech Firm</div>
-            <div class="mv-card-text">To build Axiom Business Tech into a globally recognized firm that empowers businesses through intelligent financial systems, scalable software products, and innovative digital solutions — starting in Pakistan and expanding worldwide.</div>
-          </div>
-          <div class="mv-card fade-in fade-in-delay-3">
-            <div class="mv-card-icon">💡</div>
-            <div class="mv-card-label">Our Purpose</div>
-            <div class="mv-card-title">Bridge Traditional Finance & Digital Transformation</div>
-            <div class="mv-card-text">We exist to close the gap between old-school accounting and modern technology — giving growing businesses the tools, systems, and insights they need to compete in a data-driven world.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="values-section" aria-label="Core Values">
-      <div class="container">
-        <div class="values-header">
-          <div class="fade-in">
-            <div class="section-label">What We Stand For</div>
-            <h2 class="section-title">Our Core Values</h2>
-            <p class="section-subtitle">The principles that guide our work, our relationships, and how we build solutions for every client.</p>
-          </div>
-          <div class="fade-in fade-in-delay-2" style="display:flex;align-items:center;justify-content:flex-end">
-            <div style="background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:28px;max-width:340px">
-              <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--color-black);margin-bottom:10px">Hover each value to explore</div>
-              <div style="font-size:14px;color:var(--color-muted);line-height:1.6">Each card reveals how that value shapes the way we work with our clients every day.</div>
-            </div>
-          </div>
-        </div>
-        <div class="values-grid">
-          <div class="value-card fade-in fade-in-delay-1"><span class="value-icon">🎓</span><div class="value-title">Expertise</div><div class="value-text">Every service is grounded in professional accounting knowledge and real-world data experience — not guesswork.</div></div>
-          <div class="value-card fade-in fade-in-delay-2"><span class="value-icon">🔍</span><div class="value-title">Precision</div><div class="value-text">We treat every number, every dashboard, and every report with meticulous attention to accuracy and detail.</div></div>
-          <div class="value-card fade-in fade-in-delay-3"><span class="value-icon">⚡</span><div class="value-title">Innovation</div><div class="value-text">We continuously adopt modern tools and methods — from automation to BI — to stay ahead of what businesses need.</div></div>
-          <div class="value-card fade-in fade-in-delay-4"><span class="value-icon">🤝</span><div class="value-title">Partnership</div><div class="value-text">We don't just deliver work — we invest in understanding your business and growing alongside it as a long-term partner.</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="founder-section" aria-label="Founder Profile">
-      <div class="container">
-        <div class="founder-grid">
-          <div class="fade-in">
-            <div class="founder-card">
-              <div class="founder-photo">
-                <div class="founder-photo-placeholder">
-                  <div class="founder-photo-initials">AT</div>
-                </div>
-              </div>
-              <div class="founder-card-body">
-                <div class="founder-name">Awais Tahir</div>
-                <div class="founder-role">Founder & CEO, Axiom Business Tech</div>
-                <div class="founder-badges">
-                  <span class="founder-badge">ACCA Student</span>
-                  <span class="founder-badge">Finance Professional</span>
-                  <span class="founder-badge">Data Analyst</span>
-                  <span class="founder-badge">Entrepreneur</span>
-                </div>
-                <div class="founder-socials">
-                  <a href="https://www.linkedin.com/in/iamawais1628" target="_blank" class="founder-social" aria-label="LinkedIn">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-                  </a>
-                  <a href="https://www.iamawaistahir.com" target="_blank" class="founder-social" aria-label="Personal Website">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-                  </a>
-                  <a href="mailto:axiombusinesstech831@gmail.com" class="founder-social" aria-label="Email">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="founder-content fade-in fade-in-delay-2">
-            <div class="section-label">Meet the Founder</div>
-            <h2>The Mind Behind Axiom Business Tech</h2>
-            <p class="founder-bio"><strong>Awais Tahir</strong> is a finance-focused entrepreneur with a strong foundation in accounting, business strategy, and data analytics. As the founder of Axiom Business Tech, he is building a modern solutions firm that integrates financial expertise with technology to help businesses streamline operations, automate processes, and make data-driven decisions.</p>
-            <p class="founder-bio">With a forward-thinking mindset, Awais is actively working on <strong>bridging the gap between traditional finance and digital transformation</strong> — leveraging tools like Python, Power BI, SQL, and automation to create scalable business solutions that deliver real results.</p>
-            <p class="founder-bio">Currently pursuing his <strong>ACCA qualification</strong> while simultaneously running Axiom Business Tech, Awais brings a rare combination of academic rigor and hands-on entrepreneurial experience to every client engagement.</p>
-            <div class="founder-focus">
-              <div class="founder-focus-title">Core Focus Areas</div>
-              <div class="founder-focus-list">
-                <div class="founder-focus-item">Financial Analysis & Business Strategy</div>
-                <div class="founder-focus-item">Data Analytics & Automation</div>
-                <div class="founder-focus-item">Process Optimization</div>
-                <div class="founder-focus-item">Tech-Driven Business Solutions</div>
-              </div>
-            </div>
-            <div class="founder-vision-box">
-              <div class="founder-vision-label">Personal Vision</div>
-              <div class="founder-vision-text">"To build Axiom Business Tech into a globally recognized firm that empowers businesses through intelligent financial systems and innovative digital solutions."</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="future-section" aria-label="Future Direction">
-      <div class="container">
-        <div class="future-header fade-in">
-          <div class="section-label">Where We're Headed</div>
-          <h2 class="section-title">The Road Ahead</h2>
-          <p class="section-subtitle">Axiom is not just a services firm — we are building toward scalable software products and a global presence.</p>
-        </div>
-        <div class="future-grid">
-          <div class="future-card fade-in fade-in-delay-1"><div class="future-card-num">01</div><div class="future-card-title">Accounting Software Product</div><div class="future-card-text">We are developing a proprietary accounting system designed specifically for Pakistani SMEs — combining simplicity with professional-grade financial reporting capabilities.</div><span class="future-card-tag">In Development</span></div>
-          <div class="future-card fade-in fade-in-delay-2"><div class="future-card-num">02</div><div class="future-card-title">Payroll & HR Platform</div><div class="future-card-text">A payroll automation platform built for growing teams — handling salary processing, tax calculations, and compliance reporting with zero manual effort.</div><span class="future-card-tag">Planned</span></div>
-          <div class="future-card fade-in fade-in-delay-3"><div class="future-card-num">03</div><div class="future-card-title">Business Insight Tools</div><div class="future-card-text">Intelligent BI tools that connect to a business's data sources and deliver automated performance reports, forecasts, and KPI dashboards in real time.</div><span class="future-card-tag">Planned</span></div>
-          <div class="future-card fade-in fade-in-delay-1"><div class="future-card-num">04</div><div class="future-card-title">Global Client Expansion</div><div class="future-card-text">Scaling our service offering internationally — with a focus on UK and US markets where demand for remote finance and data teams is rapidly growing.</div><span class="future-card-tag">Ongoing</span></div>
-          <div class="future-card fade-in fade-in-delay-2"><div class="future-card-num">05</div><div class="future-card-title">Finance Automation Suite</div><div class="future-card-text">A bundled automation toolkit for businesses — covering invoice processing, bank reconciliation, expense categorization, and report generation via Python pipelines.</div><span class="future-card-tag">In Research</span></div>
-          <div class="future-card fade-in fade-in-delay-3"><div class="future-card-num">06</div><div class="future-card-title">Investor-Backed Growth</div><div class="future-card-text">Long-term vision includes raising strategic investment to accelerate product development and build a full team of finance, data, and technology professionals.</div><span class="future-card-tag">Long-Term</span></div>
-        </div>
-        <div class="about-cta-banner fade-in">
-          <div class="about-cta-text">
-            <h3>Ready to Work with Axiom?</h3>
-            <p>Let's discuss how we can help your business grow with better financial systems and data-driven decisions.</p>
-          </div>
-          <div style="display:flex;gap:14px;flex-wrap:wrap">
-            <a href="contact.html" class="btn btn-teal">Get in Touch <svg class="btn-icon" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-            <a href="services.html" class="btn btn-ghost">View Services</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="footer-brand-logo" aria-label="Axiom Business Tech">A</div>
-          <p class="footer-tagline">Finance, Data & Technology — Built for Growing Businesses. Helping SMEs, startups, and founders operate with financial clarity.</p>
-          <div class="footer-socials">
-            <a href="https://www.linkedin.com/company/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="mailto:axiombusinesstech831@gmail.com" class="footer-social" aria-label="Email">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </a>
-            <a href="https://www.iamawaistahir.com" target="_blank" rel="noopener" class="footer-social" aria-label="Personal Website">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div>
-          <div class="footer-col-title">Company</div>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">Home</a></li>
-            <li><a href="about.html" class="footer-link">About Us</a></li>
-            <li><a href="services.html" class="footer-link">Services</a></li>
-            <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
-            <li><a href="contact.html" class="footer-link">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Services</div>
-          <ul class="footer-links">
-            <li><a href="services.html" class="footer-link">Bookkeeping</a></li>
-            <li><a href="services.html" class="footer-link">Financial Reporting</a></li>
-            <li><a href="services.html" class="footer-link">Data Analytics</a></li>
-            <li><a href="services.html" class="footer-link">Power BI</a></li>
-            <li><a href="services.html" class="footer-link">Automation</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-col-title">Contact</div>
-          <ul class="footer-links">
-            <li><a href="mailto:axiombusinesstech831@gmail.com" class="footer-link">📧 axiombusinesstech831@gmail.com</a></li>
-            <li><span class="footer-link" style="cursor:default">📍 Punjab, Pakistan</span></li>
-            <li><span class="footer-link" style="cursor:default">🌐 Serving Globally</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2025 <span>Axiom Business Tech</span>. All rights reserved.</p>
-        <p class="footer-made">Finance · Data · Technology</p>
+      <div class="story-text fade-up delay-2">
+        <div class="section-label">Who We Are</div>
+        <h2 class="section-title">More Than a Service<br/>Provider</h2>
+        <p><strong>Axiom Business Tech</strong> was founded on a powerful belief: that growing businesses deserve access to the same quality of financial systems and data intelligence that large corporations use.</p>
+        <p>We combine a strong <strong>ACCA-based accounting foundation</strong> with modern technology tools — Power BI, Python, SQL, and automation frameworks — to deliver solutions that are both financially sound and technically powerful.</p>
+        <p>Whether you're a startup needing clean bookkeeping, an SME looking for business intelligence dashboards, or a growing company wanting to automate financial workflows — <strong>Axiom has the expertise to deliver</strong>.</p>
+        <p>Our clients span Pakistan, the UK, the USA, and beyond. We work with property managers, service-based companies, founders, and CEOs who are serious about running data-driven, financially clear operations.</p>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    var btn  = document.getElementById('hamburgerBtn');
-    var menu = document.getElementById('mobileMenu');
-    if (btn && menu) {
-      btn.onclick = function (e) {
-        e.stopPropagation();
-        var isOpen = menu.style.display === 'flex';
-        menu.style.display = isOpen ? 'none' : 'flex';
-        btn.classList.toggle('open', !isOpen);
-      };
-      menu.querySelectorAll('a').forEach(function (a) {
-        a.onclick = function () { menu.style.display = 'none'; btn.classList.remove('open'); };
-      });
-      document.addEventListener('click', function (e) {
-        if (!btn.contains(e.target) && !menu.contains(e.target)) {
-          menu.style.display = 'none'; btn.classList.remove('open');
-        }
-      });
-    }
-    var navbar = document.querySelector('.navbar');
-    if (navbar) {
-      window.addEventListener('scroll', function () {
-        navbar.classList.toggle('scrolled', window.scrollY > 20);
-      }, { passive: true });
-    }
-    function revealVisible() {
-      document.querySelectorAll('.fade-in').forEach(function (el) {
-        if (el.getBoundingClientRect().top < window.innerHeight + 100) el.classList.add('visible');
-      });
-    }
-    window.addEventListener('scroll', revealVisible, { passive: true });
-    revealVisible();
-    if ('IntersectionObserver' in window) {
-      var co = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var el = entry.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
-          var step = target / (1800 / 16), cur = 0;
-          var t = setInterval(function () {
-            cur += step;
-            if (cur >= target) { cur = target; clearInterval(t); }
-            el.textContent = Math.floor(cur) + suffix;
-          }, 16);
-          co.unobserve(el);
-        });
-      }, { threshold: 0.5 });
-      document.querySelectorAll('[data-count]').forEach(function (el) { co.observe(el); });
-    }
-  </script>
+<!-- ── MISSION, VISION, PURPOSE ────────────────────── -->
+<section class="mv-section" aria-label="Mission and Vision">
+  <div class="container">
+    <div class="mv-header fade-up">
+      <div class="section-label">Our Direction</div>
+      <h2 class="section-title">Mission, Vision & Purpose</h2>
+      <p class="section-subtitle">Three pillars that define everything we build, every client we serve, and every decision we make.</p>
+    </div>
+    <div class="mv-grid">
+      <div class="mv-card fade-up delay-1">
+        <div class="mv-icon">🎯</div>
+        <div class="mv-card-lbl">Our Mission</div>
+        <div class="mv-card-title">Deliver Financial Clarity Through Technology</div>
+        <div class="mv-card-text">To provide businesses with accurate financial records, intelligent data systems, and technology-driven solutions that simplify operations and support smart decision-making — at every stage of growth.</div>
+      </div>
+      <div class="mv-card fade-up delay-2">
+        <div class="mv-icon">🔭</div>
+        <div class="mv-card-lbl">Our Vision</div>
+        <div class="mv-card-title">A Globally Recognized Finance-Tech Firm</div>
+        <div class="mv-card-text">To build Axiom Business Tech into a globally recognized firm that empowers businesses through intelligent financial systems, scalable software products, and innovative digital solutions — starting in Pakistan and expanding worldwide.</div>
+      </div>
+      <div class="mv-card fade-up delay-3">
+        <div class="mv-icon">💡</div>
+        <div class="mv-card-lbl">Our Purpose</div>
+        <div class="mv-card-title">Bridge Traditional Finance & Digital Transformation</div>
+        <div class="mv-card-text">We exist to close the gap between old-school accounting and modern technology — giving growing businesses the tools, systems, and insights they need to compete in a data-driven world.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ── CORE VALUES ─────────────────────────────────– -->
+<section class="values-section" aria-label="Core Values">
+  <div class="container">
+    <div class="values-header">
+      <div class="fade-up">
+        <div class="section-label">What We Stand For</div>
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">The principles that guide our work, our relationships, and how we build solutions for every client.</p>
+      </div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up delay-1"><span class="value-icon">🎓</span><div class="value-title">Expertise</div><div class="value-text">Every service is grounded in professional knowledge and real-world data experience — not guesswork.</div></div>
+      <div class="value-card fade-up delay-2"><span class="value-icon">🔍</span><div class="value-title">Precision</div><div class="value-text">We treat every number, dashboard, and report with meticulous attention to accuracy and detail.</div></div>
+      <div class="value-card fade-up delay-3"><span class="value-icon">⚡</span><div class="value-title">Innovation</div><div class="value-text">We continuously adopt modern tools and methods to stay ahead of what businesses need.</div></div>
+      <div class="value-card fade-up delay-4"><span class="value-icon">🤝</span><div class="value-title">Partnership</div><div class="value-text">We don't just deliver work — we invest in understanding your business and growing alongside it.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOUNDER ──────────────────────────────────────– -->
+<section class="founder-section" aria-label="Founder Profile">
+  <div class="container">
+    <div class="founder-grid">
+      <div class="fade-up">
+        <div class="founder-card">
+          <div class="founder-photo">
+            <div class="founder-initials">AT</div>
+          </div>
+          <div class="founder-card-body">
+            <div class="founder-fname">Awais Tahir</div>
+            <div class="founder-frole">Founder & CEO, Axiom Business Tech</div>
+            <div class="founder-badges">
+              <span class="founder-badge">ACCA Student</span>
+              <span class="founder-badge">Finance Professional</span>
+              <span class="founder-badge">Data Analyst</span>
+              <span class="founder-badge">Entrepreneur</span>
+            </div>
+            <div class="founder-fsocials">
+              <a href="https://www.linkedin.com/in/iamawais1628" target="_blank" rel="noopener" class="founder-fsocial" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+              <a href="https://www.iamawaistahir.com" target="_blank" rel="noopener" class="founder-fsocial" aria-label="Website"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></a>
+              <a href="mailto:axiombusinesstech831@gmail.com" class="founder-fsocial" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="founder-content fade-up delay-2">
+        <div class="section-label">Meet the Founder</div>
+        <h2>The Mind Behind Axiom</h2>
+        <p class="founder-bio"><strong>Awais Tahir</strong> is a finance-focused entrepreneur with a strong foundation in accounting, business strategy, and data analytics. As the founder of Axiom Business Tech, he is building a modern solutions firm that integrates financial expertise with technology to help businesses streamline operations, automate processes, and make data-driven decisions.</p>
+        <p class="founder-bio">With a forward-thinking mindset, Awais is actively working on <strong>bridging the gap between traditional finance and digital transformation</strong> — leveraging tools like Python, Power BI, SQL, and automation to create scalable business solutions that deliver real results.</p>
+        <p class="founder-bio">Currently pursuing his <strong>ACCA qualification</strong> while simultaneously running Axiom Business Tech, Awais brings a rare combination of academic rigor and hands-on entrepreneurial experience to every client engagement.</p>
+        <div class="founder-focus">
+          <div class="founder-focus-title">Core Focus Areas</div>
+          <div class="founder-focus-list">
+            <div class="founder-focus-item">Financial Analysis & Business Strategy</div>
+            <div class="founder-focus-item">Data Analytics & Automation</div>
+            <div class="founder-focus-item">Process Optimization</div>
+            <div class="founder-focus-item">Tech-Driven Business Solutions</div>
+          </div>
+        </div>
+        <div class="founder-vision-box">
+          <div class="founder-vision-label">Personal Vision</div>
+          <div class="founder-vision-text">"To build Axiom Business Tech into a globally recognized firm that empowers businesses through intelligent financial systems and innovative digital solutions."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FUTURE ROADMAP ──────────────────────────────– -->
+<section class="future-section" aria-label="Future Direction">
+  <div class="container">
+    <div class="future-header fade-up">
+      <div class="section-label">Where We're Headed</div>
+      <h2 class="section-title">The Road Ahead</h2>
+      <p class="section-subtitle">Axiom is not just a services firm — we are building toward scalable software products and a global presence.</p>
+    </div>
+    <div class="future-grid">
+      <div class="future-card fade-up delay-1"><div class="future-card-num">01</div><div class="future-card-title">Accounting Software Product</div><div class="future-card-text">Developing a proprietary accounting system designed specifically for Pakistani SMEs — combining simplicity with professional-grade financial reporting.</div><span class="future-card-tag">In Development</span></div>
+      <div class="future-card fade-up delay-2"><div class="future-card-num">02</div><div class="future-card-title">Payroll & HR Platform</div><div class="future-card-text">A payroll automation platform built for growing teams — handling salary processing, tax calculations, and compliance reporting with zero manual effort.</div><span class="future-card-tag">Planned</span></div>
+      <div class="future-card fade-up delay-3"><div class="future-card-num">03</div><div class="future-card-title">Business Insight Tools</div><div class="future-card-text">Intelligent BI tools that connect to a business's data sources and deliver automated performance reports, forecasts, and KPI dashboards in real time.</div><span class="future-card-tag">Planned</span></div>
+      <div class="future-card fade-up delay-1"><div class="future-card-num">04</div><div class="future-card-title">Global Client Expansion</div><div class="future-card-text">Scaling our service offering internationally — with a focus on UK and US markets where demand for remote finance and data teams is rapidly growing.</div><span class="future-card-tag">Ongoing</span></div>
+      <div class="future-card fade-up delay-2"><div class="future-card-num">05</div><div class="future-card-title">Finance Automation Suite</div><div class="future-card-text">A bundled automation toolkit for businesses — covering invoice processing, bank reconciliation, expense categorization, and report generation via Python.</div><span class="future-card-tag">In Research</span></div>
+      <div class="future-card fade-up delay-3"><div class="future-card-num">06</div><div class="future-card-title">Investor-Backed Growth</div><div class="future-card-text">Long-term vision includes raising strategic investment to accelerate product development and build a full team of finance, data, and technology professionals.</div><span class="future-card-tag">Long-Term</span></div>
+    </div>
+    <div class="about-cta-banner fade-up">
+      <div class="about-cta-text">
+        <h3>Ready to Work with Axiom?</h3>
+        <p>Let's discuss how we can help your business grow with better financial systems and data-driven decisions.</p>
+      </div>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-primary">Get in Touch <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="services.html" class="btn btn-ghost">View Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo" aria-label="Axiom">A</div>
+        <p class="footer-tagline">Finance, Data & Technology — Built for Growing Businesses. Helping SMEs, startups, and founders operate with financial clarity.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="mailto:axiombusinesstech831@gmail.com" class="footer-social" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <a href="https://www.instagram.com/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="services.html" class="footer-link">Services</a></li>
+          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html" class="footer-link">Bookkeeping</a></li>
+          <li><a href="services.html" class="footer-link">Financial Reporting</a></li>
+          <li><a href="services.html" class="footer-link">Data Analytics</a></li>
+          <li><a href="services.html" class="footer-link">Power BI</a></li>
+          <li><a href="services.html" class="footer-link">SQL & Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:axiombusinesstech831@gmail.com" class="footer-link">📧 axiombusinesstech831@gmail.com</a></li>
+          <li><span class="footer-link" style="cursor:default">📍 Punjab, Pakistan</span></li>
+          <li><span class="footer-link" style="cursor:default">🌐 Serving Globally</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span>2025</span> <span>Axiom Business Tech</span>. All rights reserved.</p>
+      <p class="footer-made">Finance · Data · Technology</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
 </body>
 </html>
