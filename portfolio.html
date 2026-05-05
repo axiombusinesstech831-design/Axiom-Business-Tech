@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="Assets/axiomlogo.svg" type="image/svg+xml"/>
+  <title>Portfolio — Axiom Business Tech</title>
+  <meta name="description" content="See our recent projects and case studies — Power BI dashboards, Python automation, financial reporting, and data analytics."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<nav class="navbar" id="mainNav" role="navigation">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
+      <img src="Assets/axiomlogo.png" alt="Axiom Business Tech" class="nav-logo-img" onerror="this.style.display='none'"/>
+      <span class="nav-logo-text">Axiom Business Tech</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button id="hamburgerBtn" class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="nav-mobile">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="portfolio.html" class="nav-link active">Portfolio</a>
+    <a href="contact.html" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<main>
+
+<section class="page-hero" aria-label="Portfolio hero">
+  <div class="page-hero-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="breadcrumb">
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Portfolio</span>
+    </div>
+    <div class="page-hero-content fade-up">
+      <div class="section-label">Our Work</div>
+      <h1 class="section-title">Projects We're Proud Of</h1>
+      <p class="section-subtitle">Real projects. Real results. Real impact. Here's a selection of recent work that demonstrates the depth and breadth of what we deliver.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FILTER ─────────────────────────────────────────── -->
+<section class="portfolio-full-section" aria-label="Portfolio Projects">
+  <div class="container">
+    <div class="portfolio-filter fade-up">
+      <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('powerbi')">Power BI</button>
+      <button class="filter-btn" onclick="filterProjects('python')">Python</button>
+      <button class="filter-btn" onclick="filterProjects('accounting')">Accounting</button>
+    </div>
+
+    <!-- ── PROJECTS GRID ──────────────────────────────– -->
+    <div class="portfolio-grid">
+
+      <!-- Project 1 -->
+      <article class="port-card fade-up delay-1" data-category="powerbi">
+        <div class="port-card-img teal">📊</div>
+        <div class="port-card-body">
+          <div class="port-tag">Power BI · Analytics</div>
+          <h3 class="port-title">Property Management Financial Dashboard</h3>
+          <p class="port-desc">Designed and built a comprehensive Power BI dashboard for a UK-based property management firm tracking 40+ rental units across multiple locations.</p>
+          <div style="font-size: 13px; color: var(--text-muted); margin: 16px 0; padding: 14px; background: var(--bg-elevated); border-radius: var(--radius-md); border-left: 3px solid var(--teal);">
+            <strong style="color: #fff; display: block; margin-bottom: 8px;">Key Features:</strong>
+            Rent collection tracking • Expense analysis • NOI calculation • Year-over-year comparison
+          </div>
+          <a href="#" class="port-link">View Case Study <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="port-card fade-up delay-2" data-category="python">
+        <div class="port-card-img indigo">🤖</div>
+        <div class="port-card-body">
+          <div class="port-tag">Python · Automation</div>
+          <h3 class="port-title">Automated Monthly Reporting System</h3>
+          <p class="port-desc">Built a Python automation pipeline that extracts data from multiple sources, generates formatted financial reports, and distributes them via email on schedule.</p>
+          <div style="font-size: 13px; color: var(--text-muted); margin: 16px 0; padding: 14px; background: var(--bg-elevated); border-radius: var(--radius-md); border-left: 3px solid var(--indigo);">
+            <strong style="color: #fff; display: block; margin-bottom: 8px;">Impact:</strong>
+            Saved 20+ hours per month • 100% accuracy • Eliminated manual errors • Improved stakeholder engagement
+          </div>
+          <a href="#" class="port-link">View Case Study <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="port-card fade-up delay-3" data-category="accounting">
+        <div class="port-card-img amber">📋</div>
+        <div class="port-card-body">
+          <div class="port-tag">Accounting · SQL</div>
+          <h3 class="port-title">SME Financial Cleanup & Restructure</h3>
+          <p class="port-desc">Cleaned and restructured 2 years of disorganized financial records for a growth-stage startup, building a clean, scalable accounting model.</p>
+          <div style="font-size: 13px; color: var(--text-muted); margin: 16px 0; padding: 14px; background: var(--bg-elevated); border-radius: var(--radius-md); border-left: 3px solid var(--amber);">
+            <strong style="color: #fff; display: block; margin-bottom: 8px;">Deliverables:</strong>
+            Clean chart of accounts • Reconciled ledgers • SQL database setup • Quarterly reporting templates
+          </div>
+          <a href="#" class="port-link">View Case Study <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="port-card fade-up delay-1" data-category="powerbi">
+        <div class="port-card-img teal">📊</div>
+        <div class="port-card-body">
+          <div class="port-tag">Power BI · Analytics</div>
+          <h3 class="port-title">E-commerce Sales & Inventory Dashboard</h3>
+          <p class="port-desc">Created multi-page Power BI dashboard integrating sales, inventory, and customer data for a growing e-commerce business.</p>
+          <div style="font-size: 13px; color: var(--text-muted); margin: 16px 0; padding: 14px; background: var(--bg-elevated); border-radius: var(--radius-md); border-left: 3px solid var(--teal);">
+            <strong style="color: #fff; display: block; margin-bottom: 8px;">Metrics Tracked:</strong>
+            Daily revenue • Stock levels • Customer LTV • Churn analysis • Forecasting
+          </div>
+          <a href="#" class="port-link">View Case Study <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Project 5 -->
+      <article class="port-card fade-up delay-2" data-category="python">
+        <div class="port-card-img indigo">🤖</div>
+        <div class="port-card-body">
+          <div class="port-tag">Python · Data Processing</div>
+          <h3 class="port-title">Bank Statement & Invoice Processing Automation</h3>
+          <p class="port-desc">Developed Python scripts to automatically parse bank statements and invoices, extract key data, and categorize transactions for reconciliation.</p>
+          <div style="font-size: 13px; color: var(--text-muted); margin: 16px 0; padding: 14px; background: var(--bg-elevated); border-radius: var(--radius-md); border-left: 3px solid var(--indigo);">
+            <strong style="color: #fff; display: block; margin-bottom: 8px;">Results:</strong>
+            Reduced manual entry by 90% • Faster closing cycles • Reduced errors from 2% to 0.1%
+          </div>
+          <a href="#" class="port-link">View Case Study <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Project 6 -->
+      <article class="port-card fade-up delay-3" data-category="accounting">
+        <div class="port-card-img amber">📋</div>
+        <div class="port-card-body">
+          <div class="port-tag">Accounting · Reporting</div>
+          <h3 class="port-title">Management Accounts & Quarterly Reporting</h3>
+          <p class="port-desc">Established a monthly management accounting process for a professional services firm, delivering detailed profitability analysis by department.</p>
+          <div style="font-size: 13px; color: var(--text-muted); margin: 16px 0; padding: 14px; background: var(--bg-elevated); border-radius: var(--radius-md); border-left: 3px solid var(--amber);">
+            <strong style="color: #fff; display: block; margin-bottom: 8px;">Outcomes:</strong>
+            Real-time cost visibility • Department profitability tracking • Better resource allocation
+          </div>
+          <a href="#" class="port-link">View Case Study <svg width="14" height="14" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ─────────────────────────────────────────────– -->
+<section class="cta-section" aria-label="Call to Action">
+  <div class="container">
+    <div class="cta-inner fade-up">
+      <h2 class="section-title cta-title">Have a Project in Mind?</h2>
+      <p class="section-subtitle cta-subtitle">Let's discuss how we can help your business with financial clarity, data insights, or automation — all backed by real project experience.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-primary">
+          Start a Project
+          <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-ghost">Explore Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-logo" aria-label="Axiom">A</div>
+        <p class="footer-tagline">Finance, Data & Technology — Built for Growing Businesses. Helping SMEs, startups, and founders operate with financial clarity.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="mailto:axiombusinesstech831@gmail.com" class="footer-social" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+          <a href="https://www.instagram.com/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="services.html" class="footer-link">Services</a></li>
+          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="services.html" class="footer-link">Bookkeeping</a></li>
+          <li><a href="services.html" class="footer-link">Financial Reporting</a></li>
+          <li><a href="services.html" class="footer-link">Data Analytics</a></li>
+          <li><a href="services.html" class="footer-link">Power BI</a></li>
+          <li><a href="services.html" class="footer-link">SQL & Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:axiombusinesstech831@gmail.com" class="footer-link">📧 axiombusinesstech831@gmail.com</a></li>
+          <li><span class="footer-link" style="cursor:default">📍 Punjab, Pakistan</span></li>
+          <li><span class="footer-link" style="cursor:default">🌐 Serving Globally</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span>2025</span> <span>Axiom Business Tech</span>. All rights reserved.</p>
+      <p class="footer-made">Finance · Data · Technology</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function filterProjects(category) {
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.port-card');
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  cards.forEach(card => {
+    if (category === 'all' || card.dataset.category === category) {
+      card.style.display = '';
+      setTimeout(() => card.classList.add('visible'), 10);
+    } else {
+      card.style.display = 'none';
+      card.classList.remove('visible');
+    }
+  });
+}
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
