@@ -3,323 +3,1122 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="Assets/axiomlogo.svg" type="image/svg+xml"/>
+  <link rel="icon" href="Assets/axiomlogo.png" type="image/png"/>
   <title>Services — Axiom Business Tech</title>
-  <meta name="description" content="Explore Axiom Business Tech's core services: Bookkeeping, Financial Reporting, Data Analytics, Power BI Dashboards, SQL Data Processing, and Python Automation."/>
+  <meta name="description" content="Explore Axiom Business Tech's six core services — Bookkeeping, Financial Reporting, Data Analytics, Power BI Dashboards, SQL & Data Processing, and Python Automation."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="style.css"/>
+  <style>
+
+    /* ── SERVICES HERO ───────────────────────────────────── */
+    .services-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+    .services-hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .services-hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: brightness(0.25) saturate(0.6);
+    }
+    .services-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(10,11,15,0.65) 0%, rgba(10,11,15,0.2) 50%, rgba(10,11,15,0.92) 100%);
+    }
+    .services-hero::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px; pointer-events: none; opacity: 0.5;
+    }
+    .services-hero-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 780px;
+      padding: 0 24px;
+      animation: heroFadeIn 1s ease both;
+    }
+    .services-hero-content .breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 12px;
+      color: var(--clr-muted); margin-bottom: 24px; letter-spacing: 0.05em;
+    }
+    .services-hero-content .breadcrumb a { color: var(--clr-muted); transition: color var(--transition); }
+    .services-hero-content .breadcrumb a:hover { color: var(--clr-accent); }
+    .services-hero-content .breadcrumb span { color: var(--clr-accent); }
+    .services-hero-content .section-label {
+      justify-content: center; margin-bottom: 20px;
+      animation: heroFadeIn 1s 0.1s ease both;
+    }
+    .services-hero-content .section-label::before { display: none; }
+    .services-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em; color: var(--clr-white);
+      margin-bottom: 22px;
+      animation: heroFadeIn 1s 0.2s ease both;
+    }
+    .services-hero-title .grad {
+      color: transparent;
+      background: linear-gradient(135deg, var(--clr-accent) 0%, var(--clr-accent-2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .services-hero-subtitle {
+      font-size: clamp(15px, 1.8vw, 17px);
+      color: rgba(232,234,240,0.72);
+      max-width: 580px; margin: 0 auto 36px;
+      line-height: 1.75;
+      animation: heroFadeIn 1s 0.3s ease both;
+    }
+    .services-hero-tags {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-wrap: wrap;
+      animation: heroFadeIn 1s 0.4s ease both;
+    }
+    .services-hero-tag {
+      font-family: var(--font-display); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 16px; border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: var(--clr-muted);
+      transition: all var(--transition); cursor: pointer;
+    }
+    .services-hero-tag:hover, .services-hero-tag.active {
+      background: var(--clr-accent); border-color: var(--clr-accent);
+      color: var(--clr-white);
+    }
+
+    /* ── SERVICES NAV STRIP ──────────────────────────────── */
+    .services-nav-strip {
+      background: var(--clr-surface);
+      border-bottom: 1px solid var(--clr-border);
+      position: sticky; top: var(--nav-h); z-index: 90;
+    }
+    .services-nav-inner {
+      display: flex; align-items: center; gap: 0;
+      max-width: var(--container); margin: 0 auto;
+      padding: 0 24px; overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .services-nav-inner::-webkit-scrollbar { display: none; }
+    .services-nav-link {
+      display: flex; align-items: center; gap: 8px;
+      padding: 16px 20px;
+      font-family: var(--font-display); font-size: 13px; font-weight: 600;
+      color: var(--clr-muted); white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: all var(--transition);
+      text-decoration: none;
+    }
+    .services-nav-link:hover { color: var(--clr-white); }
+    .services-nav-link.active { color: var(--clr-accent); border-bottom-color: var(--clr-accent); }
+    .services-nav-link .snl-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: currentColor; opacity: 0.5;
+    }
+
+    /* ── SERVICE DETAIL SECTION ──────────────────────────── */
+    .service-detail {
+      padding: 100px 0;
+    }
+    .service-detail:nth-child(odd) { background: var(--clr-bg); }
+    .service-detail:nth-child(even) { background: var(--clr-surface); }
+
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .service-detail-grid.reverse { direction: rtl; }
+    .service-detail-grid.reverse > * { direction: ltr; }
+
+    /* Visual side */
+    .service-detail-visual { position: relative; }
+
+    .service-detail-img-wrap {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+    }
+    .service-detail-img {
+      width: 100%; height: 420px;
+      object-fit: cover;
+      filter: brightness(0.6) saturate(0.7);
+      transition: filter 0.5s ease, transform 0.5s ease;
+    }
+    .service-detail-img-wrap:hover .service-detail-img {
+      filter: brightness(0.75) saturate(0.9);
+      transform: scale(1.02);
+    }
+    .service-detail-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,11,15,0.7) 0%, transparent 60%);
+    }
+
+    .service-detail-badge {
+      position: absolute; top: 20px; left: 20px;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      padding: 10px 16px;
+      display: flex; align-items: center; gap: 10px;
+      backdrop-filter: blur(12px);
+    }
+    .service-detail-badge img {
+      width: 28px; height: 28px; object-fit: contain;
+    }
+    .service-detail-badge span {
+      font-family: var(--font-display); font-size: 12px;
+      font-weight: 600; color: var(--clr-text);
+    }
+
+    .service-detail-stat {
+      position: absolute; bottom: 20px; right: 20px;
+      background: rgba(79,142,247,0.15);
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+    .service-detail-stat-val {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 800;
+      color: var(--clr-accent); line-height: 1;
+      margin-bottom: 2px;
+    }
+    .service-detail-stat-label {
+      font-size: 11px; color: var(--clr-muted); font-weight: 500;
+    }
+
+    /* Text side */
+    .service-detail-text {}
+
+    .service-tag-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-display); font-size: 10px;
+      font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 14px; border-radius: var(--radius-full);
+      margin-bottom: 18px;
+    }
+    .tag-finance { background: rgba(29,78,216,0.15); color: #93c5fd; border: 1px solid rgba(29,78,216,0.25); }
+    .tag-analytics { background: rgba(124,58,237,0.15); color: #c4b5fd; border: 1px solid rgba(124,58,237,0.25); }
+    .tag-tech { background: rgba(15,118,110,0.15); color: #5eead4; border: 1px solid rgba(15,118,110,0.25); }
+
+    .service-detail-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 800; color: var(--clr-white);
+      letter-spacing: -0.02em; line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .service-detail-desc {
+      font-size: 15.5px; color: var(--clr-muted);
+      line-height: 1.8; margin-bottom: 16px;
+    }
+    .service-detail-desc strong { color: var(--clr-text); font-weight: 600; }
+
+    /* Deliverables */
+    .service-deliverables {
+      margin: 28px 0;
+    }
+    .service-deliverables-title {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--clr-accent); margin-bottom: 14px;
+    }
+    .service-deliverables-list {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .service-del-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: var(--clr-muted); line-height: 1.5;
+    }
+    .service-del-item::before {
+      content: '';
+      width: 18px; height: 18px; flex-shrink: 0;
+      background: rgba(79,142,247,0.15);
+      border: 1px solid rgba(79,142,247,0.3);
+      border-radius: 50%;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12l5 5L19 7' stroke='%234f8ef7' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-top: 1px;
+    }
+
+    /* Tools used */
+    .service-tools {
+      display: flex; align-items: center; gap: 10px;
+      flex-wrap: wrap; margin: 24px 0 32px;
+    }
+    .service-tools-label {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--clr-subtle); margin-right: 4px;
+    }
+    .service-tool-chip {
+      display: flex; align-items: center; gap: 6px;
+      padding: 5px 12px;
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-full);
+      font-family: var(--font-display);
+      font-size: 12px; font-weight: 600;
+      color: var(--clr-muted);
+      transition: all var(--transition);
+    }
+    .service-tool-chip:hover {
+      border-color: var(--clr-border-med);
+      color: var(--clr-text);
+    }
+    .service-tool-chip img { width: 16px; height: 16px; object-fit: contain; }
+
+    /* Who is it for */
+    .service-for {
+      background: var(--clr-surface-2);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin-bottom: 28px;
+    }
+    .service-for-title {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--clr-muted); margin-bottom: 10px;
+    }
+    .service-for-tags {
+      display: flex; flex-wrap: wrap; gap: 8px;
+    }
+    .service-for-tag {
+      font-size: 13px; color: var(--clr-text);
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      padding: 4px 12px; border-radius: var(--radius-full);
+      font-weight: 500;
+    }
+
+    /* ── PROCESS SECTION ─────────────────────────────────── */
+    .process-section {
+      background: var(--clr-bg);
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-section::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(79,142,247,0.04) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .process-wrapper {
+      position: relative;
+      margin-top: 72px;
+    }
+
+    /* Center circle */
+    .process-center {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(79,142,247,0.15) 0%, rgba(126,200,245,0.08) 100%);
+      border: 2px solid rgba(79,142,247,0.3);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 10;
+      box-shadow: 0 0 60px rgba(79,142,247,0.12), inset 0 0 40px rgba(79,142,247,0.05);
+    }
+    .process-center-icon { font-size: 32px; margin-bottom: 6px; }
+    .process-center-text {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      color: var(--clr-accent); text-align: center;
+      letter-spacing: -0.01em; line-height: 1.3;
+    }
+
+    /* SVG orbit ring */
+    .process-ring {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      border: 1px dashed rgba(79,142,247,0.15);
+      z-index: 5;
+      animation: rotateSlow 40s linear infinite;
+    }
+    @keyframes rotateSlow {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Step dots on ring */
+    .process-dot {
+      position: absolute;
+      width: 12px; height: 12px;
+      background: var(--clr-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(79,142,247,0.5);
+    }
+
+    /* Grid layout for cards */
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr 220px 1fr;
+      grid-template-rows: repeat(3, auto);
+      gap: 20px;
+      align-items: center;
+      position: relative;
+      z-index: 20;
+    }
+
+    .process-col-left { display: flex; flex-direction: column; gap: 20px; }
+    .process-col-right { display: flex; flex-direction: column; gap: 20px; }
+    .process-col-center {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; min-height: 500px;
+    }
+
+    /* Card */
+    .process-card {
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: all var(--transition);
+      position: relative;
+    }
+    .process-card:hover {
+      border-color: rgba(79,142,247,0.3);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Connector line from card to center */
+    .process-card.left::after {
+      content: '';
+      position: absolute;
+      top: 50%; right: -32px;
+      width: 32px; height: 1px;
+      background: linear-gradient(to right, rgba(79,142,247,0.4), transparent);
+    }
+    .process-card.right::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: -32px;
+      width: 32px; height: 1px;
+      background: linear-gradient(to left, rgba(79,142,247,0.4), transparent);
+    }
+
+    .process-step-num {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--clr-accent); margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .process-step-num::before {
+      content: '';
+      display: inline-block;
+      width: 20px; height: 2px;
+      background: var(--clr-accent);
+      border-radius: 1px;
+    }
+
+    .process-step-icon {
+      font-size: 24px; margin-bottom: 10px; display: block;
+    }
+
+    .process-card-title {
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 700;
+      color: var(--clr-white); margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+
+    .process-card-text {
+      font-size: 13px; color: var(--clr-muted);
+      line-height: 1.65;
+    }
+
+    /* ── CTA STRIP ───────────────────────────────────────── */
+    .services-cta-strip {
+      background: var(--clr-surface);
+      padding: 80px 0;
+      border-top: 1px solid var(--clr-border);
+    }
+    .services-cta-inner {
+      background: linear-gradient(135deg, rgba(79,142,247,0.1) 0%, rgba(126,200,245,0.05) 100%);
+      border: 1px solid rgba(79,142,247,0.2);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .services-cta-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 700; color: var(--clr-white);
+      letter-spacing: -0.02em; margin-bottom: 10px;
+    }
+    .services-cta-inner p {
+      font-size: 15px; color: var(--clr-muted);
+      max-width: 440px; line-height: 1.65;
+    }
+    .services-cta-actions {
+      display: flex; gap: 14px; flex-wrap: wrap; flex-shrink: 0;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .process-col-center { min-height: 260px; }
+      .process-card.left::after,
+      .process-card.right::before { display: none; }
+    }
+
+    @media (max-width: 900px) {
+      .service-detail-grid { grid-template-columns: 1fr; gap: 40px; }
+      .service-detail-grid.reverse { direction: ltr; }
+      .service-detail-img { height: 280px; }
+      .services-cta-inner { flex-direction: column; text-align: center; padding: 36px 28px; }
+      .services-cta-inner p { max-width: 100%; }
+      .services-cta-actions { justify-content: center; }
+    }
+
+    @media (max-width: 640px) {
+      .services-nav-link { padding: 14px 14px; font-size: 12px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav class="navbar" id="mainNav" role="navigation">
-  <div class="nav-container">
-    <a href="index.html" class="nav-logo" aria-label="Axiom Business Tech">
-      <img src="Assets/axiomlogo.png" alt="Axiom Business Tech" class="nav-logo-img" onerror="this.style.display='none'"/>
-      <span class="nav-logo-text">Axiom Business Tech</span>
-    </a>
-    <ul class="nav-links" role="list">
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="about.html" class="nav-link">About</a></li>
-      <li><a href="services.html" class="nav-link active">Services</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
-    </ul>
-    <button id="hamburgerBtn" class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div id="mobileMenu" class="nav-mobile">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-    <a href="services.html" class="nav-link active">Services</a>
-    <a href="portfolio.html" class="nav-link">Portfolio</a>
-    <a href="contact.html" class="nav-cta">Contact Us</a>
-  </div>
-</nav>
-
-<main>
-
-<!-- ── PAGE HERO ──────────────────────────────────────── -->
-<section class="page-hero" aria-label="Services hero">
-  <div class="page-hero-grid" aria-hidden="true"></div>
-  <div class="container">
-    <div class="breadcrumb">
-      <span class="breadcrumb-sep">›</span>
-      <span class="breadcrumb-current">Services</span>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="navLogo">
+        <img src="Assets/axiomlogo.png" alt="Axiom" class="logo-img" />
+        <span class="logo-name">Axiom Business Tech</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="services.html" class="nav-link active">Services</a></li>
+        <li><a href="industries.html" class="nav-link">Industries</a></li>
+        <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+        <li><a href="contact.html" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="page-hero-content fade-up">
-      <div class="section-label">What We Offer</div>
-      <h1 class="section-title">Finance, Data & Tech —<br/>All Under One Roof</h1>
-      <p class="section-subtitle">Six focused services built on ACCA-level accounting expertise, modern data tools, and smart automation — so your business runs with clarity and confidence.</p>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" class="mob-link">Home</a>
+      <a href="about.html" class="mob-link">About</a>
+      <a href="services.html" class="mob-link">Services</a>
+      <a href="industries.html" class="mob-link">Industries</a>
+      <a href="portfolio.html" class="mob-link">Portfolio</a>
+      <a href="contact.html" class="mob-link mob-cta">Contact Us</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="services-hero">
+    <div class="services-hero-bg">
+      <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+      " alt="Data analytics workspace" />
+      <div class="services-hero-overlay"></div>
+    </div>
+    <div class="services-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Services</span>
+      </div>
+      <div class="section-label">What We Do</div>
+      <h1 class="services-hero-title">Six Services. One <span class="grad">Integrated Vision.</span></h1>
+      <p class="services-hero-subtitle">From accurate bookkeeping to real-time dashboards and Python automation — every service we offer is built to replace guesswork with data-driven confidence.</p>
       <div class="services-hero-tags">
-        <span class="services-hero-tag"><span class="dot-teal"></span>Bookkeeping</span>
-        <span class="services-hero-tag"><span class="dot-teal"></span>Financial Reporting</span>
-        <span class="services-hero-tag"><span class="dot-indigo"></span>Data Analytics</span>
-        <span class="services-hero-tag"><span class="dot-indigo"></span>Power BI</span>
-        <span class="services-hero-tag"><span class="dot-amber"></span>SQL Processing</span>
-        <span class="services-hero-tag"><span class="dot-amber"></span>Python Automation</span>
+        <a href="#bookkeeping" class="services-hero-tag">Bookkeeping</a>
+        <a href="#reporting" class="services-hero-tag">Financial Reporting</a>
+        <a href="#analytics" class="services-hero-tag">Data Analytics</a>
+        <a href="#powerbi" class="services-hero-tag">Power BI</a>
+        <a href="#sql" class="services-hero-tag">SQL</a>
+        <a href="#automation" class="services-hero-tag">Automation</a>
       </div>
+    </div>
+  </section>
+
+  <!-- STICKY NAV STRIP -->
+  <div class="services-nav-strip">
+    <div class="services-nav-inner">
+      <a href="#bookkeeping" class="services-nav-link active"><span class="snl-dot"></span>Bookkeeping</a>
+      <a href="#reporting" class="services-nav-link"><span class="snl-dot"></span>Financial Reporting</a>
+      <a href="#analytics" class="services-nav-link"><span class="snl-dot"></span>Data Analytics</a>
+      <a href="#powerbi" class="services-nav-link"><span class="snl-dot"></span>Power BI</a>
+      <a href="#sql" class="services-nav-link"><span class="snl-dot"></span>SQL & Data</a>
+      <a href="#automation" class="services-nav-link"><span class="snl-dot"></span>Automation</a>
     </div>
   </div>
-</section>
 
-<!-- ── SERVICES DETAIL CARDS ──────────────────────────– -->
-<section class="services-main-section" aria-label="Core Services">
-  <div class="container">
-    <div class="services-full-grid">
-
-      <!-- 1. Bookkeeping -->
-      <div class="service-detail-card fade-up delay-1">
-        <div class="sdc-top">
-          <div class="sdc-icon-wrap icon-teal">📒</div>
-          <div class="sdc-cat">Finance</div>
-          <h2 class="sdc-title">Bookkeeping & Accounting</h2>
-          <p class="sdc-desc">Accurate, professionally maintained financial records that keep your business compliant and always audit-ready. We handle the numbers so you can focus on growth.</p>
-          <div class="sdc-features">
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Daily transaction recording & categorization</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Bank & credit card reconciliations</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Accounts payable & receivable management</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Month-end closing & adjusting entries</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Chart of accounts setup & structuring</div>
+  <!-- ── SERVICE 1: BOOKKEEPING ─────────────────────────── -->
+  <section class="service-detail" id="bookkeeping">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-visual reveal">
+          <div class="service-detail-img-wrap">
+            <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=900&q=80&auto=format&fit=crop" alt="Bookkeeping" class="service-detail-img" />
+            <div class="service-detail-img-overlay"></div>
+            <div class="service-detail-badge">
+              <img src="https://cdn.simpleicons.org/quickbooks/2CA01C" alt="QuickBooks" />
+              <span>QuickBooks / Xero</span>
+            </div>
+            <div class="service-detail-stat">
+              <div class="service-detail-stat-val">100%</div>
+              <div class="service-detail-stat-label">Data Accuracy</div>
+            </div>
           </div>
         </div>
-        <div class="sdc-bottom">
-          <span class="sdc-tag">Finance</span>
-          <a href="contact.html" class="sdc-link">Get Started <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="service-detail-text reveal reveal-delay-1">
+          <span class="service-tag-pill tag-finance">Finance</span>
+          <h2 class="service-detail-title">Bookkeeping & Accounting</h2>
+          <p class="service-detail-desc">Your books are the backbone of your business. Messy, inaccurate records lead to poor decisions, missed tax opportunities, and investor distrust. At Axiom, we maintain your financial records with <strong>ACCA-standard precision</strong> — so your numbers are always clean, current, and ready when you need them.</p>
+          <p class="service-detail-desc">We handle everything from daily transaction recording to monthly reconciliations and year-end closing — giving you a clear, real-time picture of your financial health.</p>
+
+          <div class="service-deliverables">
+            <div class="service-deliverables-title">What You Get</div>
+            <div class="service-deliverables-list">
+              <div class="service-del-item">Daily / weekly transaction recording and categorization</div>
+              <div class="service-del-item">Bank and credit card reconciliations</div>
+              <div class="service-del-item">Accounts payable & receivable management</div>
+              <div class="service-del-item">Month-end and year-end closing</div>
+              <div class="service-del-item">Chart of accounts setup and optimization</div>
+              <div class="service-del-item">Payroll journal entries and expense tracking</div>
+              <div class="service-del-item">Audit-ready, investor-ready books</div>
+            </div>
+          </div>
+
+          <div class="service-tools">
+            <span class="service-tools-label">Tools:</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/quickbooks/2CA01C" alt="QuickBooks" />QuickBooks</span>
+            <span class="service-tool-chip"><img src="https://img.icons8.com/fluency/96/microsoft-excel-2019.png" alt="Excel" />Excel</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/googlesheets/34A853" alt="Sheets" />Google Sheets</span>
+          </div>
+
+          <div class="service-for">
+            <div class="service-for-title">Ideal For</div>
+            <div class="service-for-tags">
+              <span class="service-for-tag">Startups</span>
+              <span class="service-for-tag">SMEs</span>
+              <span class="service-for-tag">Property Managers</span>
+              <span class="service-for-tag">Service Businesses</span>
+              <span class="service-for-tag">E-Commerce Brands</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-dark">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 2. Financial Reporting -->
-      <div class="service-detail-card fade-up delay-2">
-        <div class="sdc-top">
-          <div class="sdc-icon-wrap icon-teal">📈</div>
-          <div class="sdc-cat">Finance</div>
-          <h2 class="sdc-title">Financial Reporting</h2>
-          <p class="sdc-desc">Clear, professional financial statements prepared to international standards. Understand exactly where your money is going and make decisions with full financial visibility.</p>
-          <div class="sdc-features">
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Profit & Loss statements (monthly / quarterly)</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Balance sheets & equity statements</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Cash flow reports & forecasting</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Budget vs. actual variance analysis</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>ACCA-standard management accounts</div>
+  <!-- ── SERVICE 2: FINANCIAL REPORTING ────────────────── -->
+  <section class="service-detail" id="reporting">
+    <div class="container">
+      <div class="service-detail-grid reverse">
+        <div class="service-detail-visual reveal">
+          <div class="service-detail-img-wrap">
+            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?w=900&q=80&auto=format&fit=crop" alt="Financial Reporting" class="service-detail-img" />
+            <div class="service-detail-img-overlay"></div>
+            <div class="service-detail-badge">
+              <img src="https://img.icons8.com/fluency/96/microsoft-excel-2019.png" alt="Excel" />
+              <span>Excel / Google Sheets</span>
+            </div>
+            <div class="service-detail-stat">
+              <div class="service-detail-stat-val">3x</div>
+              <div class="service-detail-stat-label">Faster Reporting</div>
+            </div>
           </div>
         </div>
-        <div class="sdc-bottom">
-          <span class="sdc-tag">Finance</span>
-          <a href="contact.html" class="sdc-link">Get Started <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="service-detail-text reveal reveal-delay-1">
+          <span class="service-tag-pill tag-finance">Finance</span>
+          <h2 class="service-detail-title">Financial Reporting</h2>
+          <p class="service-detail-desc">Numbers are only useful when they tell a story. Our financial reports don't just show figures — they reveal <strong>what's working, what's not, and where your business is headed</strong>. We produce clear, professional, timely reports that management and investors can actually understand and act on.</p>
+          <p class="service-detail-desc">Whether you need monthly management accounts, quarterly performance reviews, or annual financial statements — we deliver them on time, every time.</p>
+
+          <div class="service-deliverables">
+            <div class="service-deliverables-title">What You Get</div>
+            <div class="service-deliverables-list">
+              <div class="service-del-item">Profit & Loss (Income) Statements</div>
+              <div class="service-del-item">Balance Sheet & Net Worth Reports</div>
+              <div class="service-del-item">Cash Flow Statements & Forecasts</div>
+              <div class="service-del-item">Monthly Management Accounts</div>
+              <div class="service-del-item">Budget vs Actuals Variance Reports</div>
+              <div class="service-del-item">KPI Summary Reports for management</div>
+              <div class="service-del-item">Investor-ready financial packages</div>
+            </div>
+          </div>
+
+          <div class="service-tools">
+            <span class="service-tools-label">Tools:</span>
+            <span class="service-tool-chip"><img src="https://img.icons8.com/fluency/96/microsoft-excel-2019.png" alt="Excel" />Excel</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/googlesheets/34A853" alt="Sheets" />Google Sheets</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/quickbooks/2CA01C" alt="QuickBooks" />QuickBooks</span>
+          </div>
+
+          <div class="service-for">
+            <div class="service-for-title">Ideal For</div>
+            <div class="service-for-tags">
+              <span class="service-for-tag">Founders & CEOs</span>
+              <span class="service-for-tag">Investors</span>
+              <span class="service-for-tag">Growing SMEs</span>
+              <span class="service-for-tag">Real Estate Firms</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-dark">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 3. Data Analytics -->
-      <div class="service-detail-card fade-up delay-3">
-        <div class="sdc-top">
-          <div class="sdc-icon-wrap icon-indigo">🔍</div>
-          <div class="sdc-cat">Analytics</div>
-          <h2 class="sdc-title">Data Analytics</h2>
-          <p class="sdc-desc">Turn raw business data into meaningful insights. We identify trends, uncover inefficiencies, and surface opportunities hidden inside your numbers — so you can act, not guess.</p>
-          <div class="sdc-features">
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Exploratory data analysis (EDA)</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>KPI definition & performance tracking</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Sales, revenue & customer trend analysis</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Data storytelling & presentation</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Excel & Google Sheets advanced modelling</div>
+  <!-- ── SERVICE 3: DATA ANALYTICS ─────────────────────── -->
+  <section class="service-detail" id="analytics">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-visual reveal">
+          <div class="service-detail-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop" alt="Data Analytics" class="service-detail-img" />
+            <div class="service-detail-img-overlay"></div>
+            <div class="service-detail-badge">
+              <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" />
+              <span>Python / Pandas</span>
+            </div>
+            <div class="service-detail-stat">
+              <div class="service-detail-stat-val">↑22%</div>
+              <div class="service-detail-stat-label">Avg Revenue Lift</div>
+            </div>
           </div>
         </div>
-        <div class="sdc-bottom">
-          <span class="sdc-tag">Analytics</span>
-          <a href="contact.html" class="sdc-link">Get Started <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="service-detail-text reveal reveal-delay-1">
+          <span class="service-tag-pill tag-analytics">Analytics</span>
+          <h2 class="service-detail-title">Data Analytics</h2>
+          <p class="service-detail-desc">Most businesses are sitting on a goldmine of untapped data. We mine it, clean it, and turn it into <strong>actionable intelligence</strong> — uncovering trends, patterns, and opportunities that are invisible to the naked eye. Our analytics work has helped clients increase revenue, cut costs, and make faster, smarter decisions.</p>
+          <p class="service-detail-desc">From customer segmentation to financial trend analysis, we apply proven analytical frameworks to your data and translate the findings into plain-English recommendations.</p>
+
+          <div class="service-deliverables">
+            <div class="service-deliverables-title">What You Get</div>
+            <div class="service-deliverables-list">
+              <div class="service-del-item">Sales trend analysis and forecasting</div>
+              <div class="service-del-item">Customer segmentation and behaviour analysis</div>
+              <div class="service-del-item">Financial data exploration and pattern detection</div>
+              <div class="service-del-item">Profitability analysis by product / segment / region</div>
+              <div class="service-del-item">Data cleaning, transformation and structuring</div>
+              <div class="service-del-item">Insight reports with visual storytelling</div>
+              <div class="service-del-item">Actionable recommendations, not just numbers</div>
+            </div>
+          </div>
+
+          <div class="service-tools">
+            <span class="service-tools-label">Tools:</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" />Python</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas" />Pandas</span>
+            <span class="service-tool-chip"><img src="https://img.icons8.com/fluency/96/microsoft-excel-2019.png" alt="Excel" />Excel</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL" />SQL</span>
+          </div>
+
+          <div class="service-for">
+            <div class="service-for-title">Ideal For</div>
+            <div class="service-for-tags">
+              <span class="service-for-tag">E-Commerce</span>
+              <span class="service-for-tag">Retail & FMCG</span>
+              <span class="service-for-tag">SaaS Companies</span>
+              <span class="service-for-tag">Healthcare</span>
+              <span class="service-for-tag">Logistics</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-dark">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 4. Power BI -->
-      <div class="service-detail-card fade-up delay-1">
-        <div class="sdc-top">
-          <div class="sdc-icon-wrap icon-indigo">📊</div>
-          <div class="sdc-cat">Analytics</div>
-          <h2 class="sdc-title">Power BI Dashboards</h2>
-          <p class="sdc-desc">Interactive, real-time dashboards that connect directly to your data sources and present your most important KPIs visually — built for fast decisions, not spreadsheet digging.</p>
-          <div class="sdc-features">
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Custom dashboard design & development</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Live data source connections (Excel, SQL, APIs)</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>DAX measures & calculated columns</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Financial, sales & operational dashboards</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Power BI Service publishing & sharing</div>
+  <!-- ── SERVICE 4: POWER BI ────────────────────────────── -->
+  <section class="service-detail" id="powerbi">
+    <div class="container">
+      <div class="service-detail-grid reverse">
+        <div class="service-detail-visual reveal">
+          <div class="service-detail-img-wrap">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&auto=format&fit=crop" alt="Power BI Dashboard" class="service-detail-img" />
+            <div class="service-detail-img-overlay"></div>
+            <div class="service-detail-badge">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" />
+              <span>Microsoft Power BI</span>
+            </div>
+            <div class="service-detail-stat">
+              <div class="service-detail-stat-val">↓85%</div>
+              <div class="service-detail-stat-label">Reporting Time</div>
+            </div>
           </div>
         </div>
-        <div class="sdc-bottom">
-          <span class="sdc-tag">Analytics</span>
-          <a href="contact.html" class="sdc-link">Get Started <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="service-detail-text reveal reveal-delay-1">
+          <span class="service-tag-pill tag-analytics">Analytics</span>
+          <h2 class="service-detail-title">Power BI Dashboards</h2>
+          <p class="service-detail-desc">Imagine opening a single screen each morning that shows you exactly how your business performed — revenue, expenses, KPIs, trends — all <strong>live and interactive</strong>. That's what a well-built Power BI dashboard delivers. No more waiting for reports. No more spreadsheet chaos.</p>
+          <p class="service-detail-desc">We design, build, and deploy custom dashboards that connect directly to your data sources — QuickBooks, Excel, SQL databases, Google Sheets — and update automatically so you always see the truth about your business.</p>
+
+          <div class="service-deliverables">
+            <div class="service-deliverables-title">What You Get</div>
+            <div class="service-deliverables-list">
+              <div class="service-del-item">Custom Power BI dashboard design and build</div>
+              <div class="service-del-item">Live data connections to your existing sources</div>
+              <div class="service-del-item">KPI cards, trend charts, drill-down reports</div>
+              <div class="service-del-item">Financial dashboards (P&L, cash flow, budgets)</div>
+              <div class="service-del-item">Sales, inventory and operational dashboards</div>
+              <div class="service-del-item">Mobile-responsive design for on-the-go access</div>
+              <div class="service-del-item">Team training and ongoing maintenance</div>
+            </div>
+          </div>
+
+          <div class="service-tools">
+            <span class="service-tools-label">Tools:</span>
+            <span class="service-tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" />Power BI</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL" />SQL</span>
+            <span class="service-tool-chip"><img src="https://img.icons8.com/fluency/96/microsoft-excel-2019.png" alt="Excel" />Excel</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/googlesheets/34A853" alt="Sheets" />Google Sheets</span>
+          </div>
+
+          <div class="service-for">
+            <div class="service-for-title">Ideal For</div>
+            <div class="service-for-tags">
+              <span class="service-for-tag">Property Managers</span>
+              <span class="service-for-tag">Operations Teams</span>
+              <span class="service-for-tag">Finance Directors</span>
+              <span class="service-for-tag">Executive Teams</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-dark">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 5. SQL -->
-      <div class="service-detail-card fade-up delay-2">
-        <div class="sdc-top">
-          <div class="sdc-icon-wrap icon-amber">🗄️</div>
-          <div class="sdc-cat">Technology</div>
-          <h2 class="sdc-title">SQL & Data Processing</h2>
-          <p class="sdc-desc">Clean, structured, and query-ready data is the foundation of every great analysis. We build the pipelines and databases that make your data reliable and fast to work with.</p>
-          <div class="sdc-features">
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Database design & schema building</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Data cleaning, deduplication & transformation</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Complex query writing & optimization</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>ETL pipeline setup (Extract, Transform, Load)</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>MySQL, PostgreSQL & SQLite support</div>
+  <!-- ── SERVICE 5: SQL & DATA PROCESSING ──────────────── -->
+  <section class="service-detail" id="sql">
+    <div class="container">
+      <div class="service-detail-grid">
+        <div class="service-detail-visual reveal">
+          <div class="service-detail-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=900&q=80&auto=format&fit=crop" alt="SQL Database" class="service-detail-img" />
+            <div class="service-detail-img-overlay"></div>
+            <div class="service-detail-badge">
+              <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" />
+              <span>MySQL / PostgreSQL</span>
+            </div>
+            <div class="service-detail-stat">
+              <div class="service-detail-stat-val">∞</div>
+              <div class="service-detail-stat-label">Scalable Queries</div>
+            </div>
           </div>
         </div>
-        <div class="sdc-bottom">
-          <span class="sdc-tag">Technology</span>
-          <a href="contact.html" class="sdc-link">Get Started <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="service-detail-text reveal reveal-delay-1">
+          <span class="service-tag-pill tag-tech">Technology</span>
+          <h2 class="service-detail-title">SQL & Data Processing</h2>
+          <p class="service-detail-desc">Bad data is worse than no data. Before you can analyze, visualize, or automate anything — your data needs to be <strong>clean, structured, and query-ready</strong>. We design and build robust data infrastructure that becomes the foundation for every business insight you'll ever generate.</p>
+          <p class="service-detail-desc">Whether you need a database built from scratch, messy data cleaned and normalized, or an ETL pipeline to move data between systems — we engineer reliable data solutions that scale with your business.</p>
+
+          <div class="service-deliverables">
+            <div class="service-deliverables-title">What You Get</div>
+            <div class="service-deliverables-list">
+              <div class="service-del-item">Database design and architecture</div>
+              <div class="service-del-item">Data cleaning, normalization and validation</div>
+              <div class="service-del-item">ETL pipelines (Extract, Transform, Load)</div>
+              <div class="service-del-item">Complex SQL query writing and optimization</div>
+              <div class="service-del-item">Data migration between systems</div>
+              <div class="service-del-item">Stored procedures and automated data jobs</div>
+              <div class="service-del-item">Integration with Power BI and Python pipelines</div>
+            </div>
+          </div>
+
+          <div class="service-tools">
+            <span class="service-tools-label">Tools:</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="MySQL" />MySQL</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/postgresql/4169E1" alt="PostgreSQL" />PostgreSQL</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" />Python</span>
+          </div>
+
+          <div class="service-for">
+            <div class="service-for-title">Ideal For</div>
+            <div class="service-for-tags">
+              <span class="service-for-tag">Tech Companies</span>
+              <span class="service-for-tag">Data-Heavy Businesses</span>
+              <span class="service-for-tag">Manufacturing</span>
+              <span class="service-for-tag">Logistics Firms</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-dark">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- 6. Python -->
-      <div class="service-detail-card fade-up delay-3">
-        <div class="sdc-top">
-          <div class="sdc-icon-wrap icon-amber">⚡</div>
-          <div class="sdc-cat">Technology</div>
-          <h2 class="sdc-title">Python Automation</h2>
-          <p class="sdc-desc">Stop wasting hours on repetitive tasks. We build Python scripts and automation workflows that handle data extraction, report generation, and scheduled tasks — automatically.</p>
-          <div class="sdc-features">
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Automated report generation & delivery</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Web scraping & data extraction scripts</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Excel & CSV processing automation</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>Scheduled task & workflow automation</div>
-            <div class="sdc-feat"><div class="sdc-feat-dot"></div>API integrations & data syncing</div>
+  <!-- ── SERVICE 6: PYTHON AUTOMATION ──────────────────── -->
+  <section class="service-detail" id="automation">
+    <div class="container">
+      <div class="service-detail-grid reverse">
+        <div class="service-detail-visual reveal">
+          <div class="service-detail-img-wrap">
+            <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=900&q=80&auto=format&fit=crop" alt="Python Automation" class="service-detail-img" />
+            <div class="service-detail-img-overlay"></div>
+            <div class="service-detail-badge">
+              <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" />
+              <span>Python Automation</span>
+            </div>
+            <div class="service-detail-stat">
+              <div class="service-detail-stat-val">16h</div>
+              <div class="service-detail-stat-label">Saved Per Month</div>
+            </div>
           </div>
         </div>
-        <div class="sdc-bottom">
-          <span class="sdc-tag">Technology</span>
-          <a href="contact.html" class="sdc-link">Get Started <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="service-detail-text reveal reveal-delay-1">
+          <span class="service-tag-pill tag-tech">Technology</span>
+          <h2 class="service-detail-title">Python Automation</h2>
+          <p class="service-detail-desc">If your team is doing the same task more than once, it can be automated. We build <strong>Python scripts and pipelines</strong> that eliminate repetitive manual work — so your team spends their time on decisions, not data entry. One client saves over 16 hours every single month from a single automation we built.</p>
+          <p class="service-detail-desc">From automated report generation to scheduled data extraction and email delivery — we engineer automations that run silently in the background while you focus on growing your business.</p>
+
+          <div class="service-deliverables">
+            <div class="service-deliverables-title">What You Get</div>
+            <div class="service-deliverables-list">
+              <div class="service-del-item">Automated report generation and delivery</div>
+              <div class="service-del-item">Scheduled data extraction from any source</div>
+              <div class="service-del-item">Invoice processing and document automation</div>
+              <div class="service-del-item">Email automation with dynamic data</div>
+              <div class="service-del-item">Web scraping for market or competitor data</div>
+              <div class="service-del-item">API integrations between business tools</div>
+              <div class="service-del-item">Custom Python scripts for any workflow</div>
+            </div>
+          </div>
+
+          <div class="service-tools">
+            <span class="service-tools-label">Tools:</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/python/3776AB" alt="Python" />Python</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/pandas/150458" alt="Pandas" />Pandas</span>
+            <span class="service-tool-chip"><img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL" />SQL</span>
+          </div>
+
+          <div class="service-for">
+            <div class="service-for-title">Ideal For</div>
+            <div class="service-for-tags">
+              <span class="service-for-tag">Finance Teams</span>
+              <span class="service-for-tag">Operations Managers</span>
+              <span class="service-for-tag">Agencies</span>
+              <span class="service-for-tag">Any Repetitive Workflow</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-dark">Get Started <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ── PROCESS ─────────────────────────────────────────– -->
-<section class="process-section-services" aria-label="Our Process">
-  <div class="container">
-    <div class="process-header fade-up">
-      <div class="section-label">How We Work</div>
-      <h2 class="section-title">Simple, Transparent Process</h2>
-      <p class="section-subtitle">From first conversation to delivered results — a clear, stress-free process every time.</p>
-    </div>
-    <div class="process-grid">
-      <div class="process-step fade-up delay-1">
-        <div class="process-num">01</div>
-        <div class="process-title">Discovery Call</div>
-        <p class="process-text">We start by understanding your business, your current pain points, and exactly what you need — no jargon, no pressure.</p>
+  <!-- ── OUR PROCESS ────────────────────────────────────── -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">How We Work</div>
+        <h2 class="section-title">Our End-to-End Process</h2>
+        <p class="section-subtitle">A clear, structured approach — from the first conversation to final delivery and beyond.</p>
       </div>
-      <div class="process-step fade-up delay-2">
-        <div class="process-num">02</div>
-        <div class="process-title">Proposal & Scope</div>
-        <p class="process-text">You receive a clear proposal outlining the deliverables, timeline, and pricing. No hidden fees, no surprises.</p>
-      </div>
-      <div class="process-step fade-up delay-3">
-        <div class="process-num">03</div>
-        <div class="process-title">Execution</div>
-        <p class="process-text">We get to work — building, analysing, or reporting — keeping you updated throughout with regular check-ins.</p>
-      </div>
-      <div class="process-step fade-up delay-4">
-        <div class="process-num">04</div>
-        <div class="process-title">Delivery & Support</div>
-        <p class="process-text">Final deliverables are handed over with full explanations. We stay available for follow-up questions and ongoing support.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ── TOOLS ──────────────────────────────────────────– -->
-<section class="tools-section" aria-label="Tools We Use">
-  <div class="container">
-    <div class="tools-header fade-up">
-      <div class="section-label">Our Toolkit</div>
-      <h2 class="section-title">Tools We Work With</h2>
-      <p class="section-subtitle">Industry-standard platforms and technologies — used by professionals worldwide.</p>
-    </div>
-    <div class="tools-grid">
-      <div class="tool-chip fade-up delay-1"><div class="tool-icon">📊</div><div class="tool-name">Power BI</div><div class="tool-type">Dashboards</div></div>
-      <div class="tool-chip fade-up delay-2"><div class="tool-icon">🐍</div><div class="tool-name">Python</div><div class="tool-type">Automation</div></div>
-      <div class="tool-chip fade-up delay-3"><div class="tool-icon">🗄️</div><div class="tool-name">SQL</div><div class="tool-type">Databases</div></div>
-      <div class="tool-chip fade-up delay-1"><div class="tool-icon">📗</div><div class="tool-name">Excel</div><div class="tool-type">Modelling</div></div>
-      <div class="tool-chip fade-up delay-2"><div class="tool-icon">☁️</div><div class="tool-name">QuickBooks</div><div class="tool-type">Accounting</div></div>
-      <div class="tool-chip fade-up delay-3"><div class="tool-icon">🎓</div><div class="tool-name">ACCA</div><div class="tool-type">Standards</div></div>
-    </div>
-  </div>
-</section>
+      <div class="process-wrapper reveal">
+        <div class="process-grid">
 
-<!-- ── CTA ─────────────────────────────────────────────– -->
-<section class="cta-section" aria-label="Call to Action">
-  <div class="container">
-    <div class="cta-inner fade-up">
-      <h2 class="section-title cta-title">Not Sure Which Service<br/>You Need?</h2>
-      <p class="section-subtitle cta-subtitle">That's completely fine — just reach out and we'll figure it out together. Most clients start with a free discovery call.</p>
-      <div class="cta-actions">
-        <a href="contact.html" class="btn btn-primary">
-          Book a Free Call
-          <svg class="btn-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a href="portfolio.html" class="btn btn-ghost">See Our Work</a>
-      </div>
-    </div>
-  </div>
-</section>
+          <!-- LEFT CARDS -->
+          <div class="process-col-left">
+            <div class="process-card left reveal reveal-delay-1">
+              <span class="process-step-icon">💬</span>
+              <div class="process-step-num">Step 01</div>
+              <div class="process-card-title">Discovery Call</div>
+              <div class="process-card-text">We start by understanding your business — your goals, pain points, current systems, and what success looks like for you. No templates, no assumptions.</div>
+            </div>
+            <div class="process-card left reveal reveal-delay-2">
+              <span class="process-step-icon">🗂️</span>
+              <div class="process-step-num">Step 03</div>
+              <div class="process-card-title">Data Audit & Review</div>
+              <div class="process-card-text">We assess your existing financial records, data sources, and systems — identifying gaps, errors, and opportunities before we build anything.</div>
+            </div>
+            <div class="process-card left reveal reveal-delay-3">
+              <span class="process-step-icon">🚀</span>
+              <div class="process-step-num">Step 05</div>
+              <div class="process-card-title">Build & Deliver</div>
+              <div class="process-card-text">We execute the project — building dashboards, cleaning books, writing automations, or producing reports — and deliver on agreed timelines with full transparency.</div>
+            </div>
+          </div>
 
-</main>
+          <!-- CENTER CIRCLE -->
+          <div class="process-col-center">
+            <div class="process-ring"></div>
+            <div class="process-center">
+              <div class="process-center-icon">⚙️</div>
+              <div class="process-center-text">Axiom<br/>Process</div>
+            </div>
+          </div>
 
-<!-- ── FOOTER ──────────────────────────────────────────– -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="footer-brand-logo" aria-label="Axiom">A</div>
-        <p class="footer-tagline">Finance, Data & Technology — Built for Growing Businesses. Helping SMEs, startups, and founders operate with financial clarity.</p>
-        <div class="footer-socials">
-          <a href="https://www.linkedin.com/company/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="mailto:axiombusinesstech831@gmail.com" class="footer-social" aria-label="Email"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
-          <a href="https://www.instagram.com/axiombusinesstech831" target="_blank" rel="noopener" class="footer-social" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></a>
+          <!-- RIGHT CARDS -->
+          <div class="process-col-right">
+            <div class="process-card right reveal reveal-delay-1">
+              <span class="process-step-icon">📋</span>
+              <div class="process-step-num">Step 02</div>
+              <div class="process-card-title">Proposal & Scope</div>
+              <div class="process-card-text">You receive a clear written proposal — scope of work, deliverables, timeline, and pricing. No hidden fees, no surprises. You approve before we begin.</div>
+            </div>
+            <div class="process-card right reveal reveal-delay-2">
+              <span class="process-step-icon">🛠️</span>
+              <div class="process-step-num">Step 04</div>
+              <div class="process-card-title">Strategy & Planning</div>
+              <div class="process-card-text">We design the solution architecture — choosing the right tools, frameworks, and approach to ensure the output is scalable, accurate, and fits your workflow.</div>
+            </div>
+            <div class="process-card right reveal reveal-delay-3">
+              <span class="process-step-icon">🔄</span>
+              <div class="process-step-num">Step 06</div>
+              <div class="process-card-title">Review & Ongoing Support</div>
+              <div class="process-card-text">We walk you through everything delivered, gather feedback, make revisions, and offer ongoing support — monthly retainers available for continuous partnership.</div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div>
-        <div class="footer-col-title">Company</div>
-        <ul class="footer-links">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="about.html" class="footer-link">About Us</a></li>
-          <li><a href="services.html" class="footer-link">Services</a></li>
-          <li><a href="portfolio.html" class="footer-link">Portfolio</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Services</div>
-        <ul class="footer-links">
-          <li><a href="services.html" class="footer-link">Bookkeeping</a></li>
-          <li><a href="services.html" class="footer-link">Financial Reporting</a></li>
-          <li><a href="services.html" class="footer-link">Data Analytics</a></li>
-          <li><a href="services.html" class="footer-link">Power BI</a></li>
-          <li><a href="services.html" class="footer-link">SQL & Automation</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <ul class="footer-links">
-          <li><a href="mailto:axiombusinesstech831@gmail.com" class="footer-link">📧 axiombusinesstech831@gmail.com</a></li>
-          <li><span class="footer-link" style="cursor:default">📍 Punjab, Pakistan</span></li>
-          <li><span class="footer-link" style="cursor:default">🌐 Serving Globally</span></li>
-        </ul>
-      </div>
     </div>
-    <div class="footer-bottom">
-      <p class="footer-copy">© <span>2025</span> <span>Axiom Business Tech</span>. All rights reserved.</p>
-      <p class="footer-made">Finance · Data · Technology</p>
-    </div>
-  </div>
-</footer>
+  </section>
 
-<script src="js/main.js"></script>
+  <!-- ── CTA STRIP ──────────────────────────────────────── -->
+  <section class="services-cta-strip">
+    <div class="container">
+      <div class="services-cta-inner reveal">
+        <div>
+          <h2>Not Sure Which Service You Need?</h2>
+          <p>Tell us about your business and we'll recommend exactly what will make the biggest difference. We respond within 24 hours.</p>
+        </div>
+        <div class="services-cta-actions">
+          <a href="contact.html" class="btn btn-dark">Talk to Us <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="portfolio.html" class="btn btn-outline-white">See Our Work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2 class="footer-brand-name">Axiom Business Tech</h2>
+          <p>Finance, Data and Technology — Built for Growing Businesses.</p>
+          <div class="footer-socials">
+            <a href="https://linkedin.com/company/axiombusinesstech831" target="_blank" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="mailto:axiombusinesstech831@gmail.com" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+            <a href="https://instagram.com/axiombusinesstech831" target="_blank" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Company</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="industries.html">Industries</a></li><li><a href="portfolio.html">Portfolio</a></li></ul></div>
+        <div class="footer-col"><h4>Services</h4><ul><li><a href="#bookkeeping">Bookkeeping</a></li><li><a href="#reporting">Financial Reporting</a></li><li><a href="#analytics">Data Analytics</a></li><li><a href="#powerbi">Power BI</a></li><li><a href="#automation">Automation</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:axiombusinesstech831@gmail.com">axiombusinesstech831@gmail.com</a></li><li><span>Punjab, Pakistan</span></li><li><span>Serving Globally</span></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Axiom Business Tech. All rights reserved.</span>
+        <span>Finance · Data · Technology</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // MOBILE MENU
+    var hamburger = document.getElementById('hamburgerBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (hamburger && mobileMenu) {
+      hamburger.onclick = function(e) {
+        e.stopPropagation();
+        var open = mobileMenu.style.display === 'flex';
+        mobileMenu.style.display = open ? 'none' : 'flex';
+        hamburger.classList.toggle('open', !open);
+      };
+      mobileMenu.querySelectorAll('a').forEach(function(a) {
+        a.onclick = function() { mobileMenu.style.display = 'none'; hamburger.classList.remove('open'); };
+      });
+      document.addEventListener('click', function(e) {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+          mobileMenu.style.display = 'none'; hamburger.classList.remove('open');
+        }
+      });
+    }
+
+    // NAVBAR SCROLL
+    var navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function() {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // LOGO HOVER
+    var navLogo = document.getElementById('navLogo');
+    var logoName = navLogo ? navLogo.querySelector('.logo-name') : null;
+    if (navLogo && logoName) {
+      var hideTimer;
+      navLogo.addEventListener('mouseenter', function() { clearTimeout(hideTimer); logoName.classList.add('visible'); });
+      navLogo.addEventListener('mouseleave', function() { hideTimer = setTimeout(function() { logoName.classList.remove('visible'); }, 800); });
+    }
+
+    // SCROLL REVEAL
+    function revealOnScroll() {
+      document.querySelectorAll('.reveal').forEach(function(el) {
+        if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+    revealOnScroll();
+
+    // ACTIVE SERVICES NAV STRIP
+    var sections = ['bookkeeping','reporting','analytics','powerbi','sql','automation','process'];
+    var navLinks = document.querySelectorAll('.services-nav-link');
+    window.addEventListener('scroll', function() {
+      var scrollY = window.scrollY + 160;
+      sections.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (el.offsetTop <= scrollY && el.offsetTop + el.offsetHeight > scrollY) {
+          navLinks.forEach(function(l) { l.classList.remove('active'); });
+          var active = document.querySelector('.services-nav-link[href="#' + id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { passive: true });
+
+    // SMOOTH SCROLL
+    document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 120, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
