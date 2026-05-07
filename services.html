@@ -489,12 +489,29 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .process-grid { grid-template-columns: 1fr; }
-      .process-col-center { min-height: 260px; }
-      .process-card.left::after,
-      .process-card.right::before { display: none; }
-    }
+  @media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .process-col-center { display: none; }
+  .process-col-left,
+  .process-col-right {
+    display: contents;
+  }
+  .process-card.left::after,
+  .process-card.right::before { display: none; }
+  .process-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .process-card {
+    border-left: 3px solid var(--clr-accent);
+    padding-left: 20px;
+  }
+  .process-step-num::before { display: none; }
+}
 
     @media (max-width: 900px) {
       .service-detail-grid { grid-template-columns: 1fr; gap: 40px; }
