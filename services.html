@@ -489,9 +489,10 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────────────── */
-  @media (max-width: 1024px) {
+ @media (max-width: 1024px) {
   .process-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
   }
   .process-col-center { display: none; }
@@ -501,16 +502,18 @@
   }
   .process-card.left::after,
   .process-card.right::before { display: none; }
-  .process-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
   .process-card {
     border-left: 3px solid var(--clr-accent);
-    padding-left: 20px;
+    order: unset;
   }
-  .process-step-num::before { display: none; }
+
+  /* Force correct order 01→02→03→04→05→06 */
+  .process-col-left .process-card:nth-child(1) { order: 1; }
+  .process-col-right .process-card:nth-child(1) { order: 2; }
+  .process-col-left .process-card:nth-child(2) { order: 3; }
+  .process-col-right .process-card:nth-child(2) { order: 4; }
+  .process-col-left .process-card:nth-child(3) { order: 5; }
+  .process-col-right .process-card:nth-child(3) { order: 6; }
 }
 
     @media (max-width: 900px) {
