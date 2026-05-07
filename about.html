@@ -409,14 +409,14 @@
       pointer-events: none;
     }
 
-    .founder-grid {
+    .-grid {
       display: grid;
       grid-template-columns: 360px 1fr;
       gap: 72px;
       align-items: start;
     }
 
-    .founder-card {
+    .-card {
       background: var(--clr-surface);
       border: 1px solid var(--clr-border);
       border-radius: var(--radius-xl);
@@ -425,7 +425,7 @@
       top: calc(var(--nav-h) + 24px);
     }
 
-    .founder-photo {
+    .-photo {
       height: 280px;
       background: linear-gradient(135deg, var(--clr-surface-2) 0%, #1a2035 100%);
       display: flex;
@@ -435,14 +435,14 @@
       overflow: hidden;
     }
 
-    .founder-photo::before {
+    .-photo::before {
       content: '';
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 50% 60%, rgba(79,142,247,0.12) 0%, transparent 70%);
     }
 
-    .founder-initials {
+    .-initials {
       font-family: var(--font-display);
       font-size: 64px;
       font-weight: 800;
@@ -453,11 +453,11 @@
       opacity: 0.9;
     }
 
-    .founder-card-body {
+    .-card-body {
       padding: 28px;
     }
 
-    .founder-fname {
+    .-fname {
       font-family: var(--font-display);
       font-size: 20px;
       font-weight: 700;
@@ -466,21 +466,21 @@
       margin-bottom: 4px;
     }
 
-    .founder-frole {
+    .-frole {
       font-size: 13px;
       color: var(--clr-muted);
       margin-bottom: 18px;
       line-height: 1.5;
     }
 
-    .founder-badges {
+    .-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 20px;
     }
 
-    .founder-badge {
+    .-badge {
       font-family: var(--font-display);
       font-size: 10px;
       font-weight: 600;
@@ -493,14 +493,14 @@
       border: 1px solid rgba(79,142,247,0.2);
     }
 
-    .founder-fsocials {
+    .-fsocials {
       display: flex;
       gap: 10px;
       border-top: 1px solid var(--clr-border);
       padding-top: 18px;
     }
 
-    .founder-fsocial {
+    .-fsocial {
       width: 36px;
       height: 36px;
       background: var(--clr-surface-2);
@@ -512,16 +512,16 @@
       color: var(--clr-muted);
       transition: all var(--transition);
     }
-    .founder-fsocial:hover {
+    .-fsocial:hover {
       background: var(--clr-accent);
       border-color: var(--clr-accent);
       color: var(--clr-white);
       transform: translateY(-2px);
     }
 
-    .founder-content {}
+    .-content {}
 
-    .founder-content h2 {
+    .-content h2 {
       font-family: var(--font-display);
       font-size: clamp(26px, 3vw, 36px);
       font-weight: 700;
@@ -531,15 +531,15 @@
       margin-bottom: 24px;
     }
 
-    .founder-bio {
+    .-bio {
       font-size: 15px;
       color: var(--clr-muted);
       line-height: 1.8;
       margin-bottom: 18px;
     }
-    .founder-bio strong { color: var(--clr-text); font-weight: 600; }
+    .-bio strong { color: var(--clr-text); font-weight: 600; }
 
-    .founder-focus {
+    .-focus {
       background: var(--clr-surface);
       border: 1px solid var(--clr-border);
       border-radius: var(--radius-lg);
@@ -547,7 +547,7 @@
       margin: 28px 0;
     }
 
-    .founder-focus-title {
+    .-focus-title {
       font-family: var(--font-display);
       font-size: 11px;
       font-weight: 600;
@@ -557,13 +557,13 @@
       margin-bottom: 16px;
     }
 
-    .founder-focus-list {
+    .-focus-list {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
 
-    .founder-focus-item {
+    .-focus-item {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -572,7 +572,7 @@
       font-weight: 500;
     }
 
-    .founder-focus-item::before {
+    .-focus-item::before {
       content: '';
       width: 6px;
       height: 6px;
@@ -581,14 +581,14 @@
       flex-shrink: 0;
     }
 
-    .founder-vision-box {
+    .-vision-box {
       background: linear-gradient(135deg, rgba(79,142,247,0.08) 0%, rgba(126,200,245,0.05) 100%);
       border: 1px solid rgba(79,142,247,0.2);
       border-radius: var(--radius-lg);
       padding: 24px;
     }
 
-    .founder-vision-label {
+    .-vision-label {
       font-family: var(--font-display);
       font-size: 10px;
       font-weight: 600;
@@ -598,7 +598,7 @@
       margin-bottom: 12px;
     }
 
-    .founder-vision-text {
+    .-vision-text {
       font-size: 15px;
       color: var(--clr-text);
       line-height: 1.7;
@@ -718,8 +718,8 @@
 
     /* ── RESPONSIVE ─────────────────────────────── */
     @media (max-width: 1024px) {
-      .founder-grid { grid-template-columns: 1fr; }
-      .founder-card { position: static; }
+      .-grid { grid-template-columns: 1fr; }
+      .-card { position: static; }
       .future-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
@@ -736,7 +736,7 @@
     @media (max-width: 640px) {
       .values-grid { grid-template-columns: 1fr; }
       .future-grid { grid-template-columns: 1fr; }
-      .founder-focus-list { grid-template-columns: 1fr; }
+      .-focus-list { grid-template-columns: 1fr; }
       .story-img-grid { grid-template-columns: 1fr; }
       .about-cta-banner { padding: 28px; }
     }
@@ -843,7 +843,7 @@
           <p><strong>Axiom Business Tech</strong> was founded on a powerful belief: that growing businesses deserve access to the same quality of financial systems and data intelligence that large corporations use.</p>
           <p>We combine a strong <strong>ACCA-based accounting foundation</strong> with modern technology tools — Power BI, Python, SQL, and automation frameworks — to deliver solutions that are both financially sound and technically powerful.</p>
           <p>Whether you're a startup needing clean bookkeeping, an SME looking for business intelligence dashboards, or a growing company wanting to automate financial workflows — <strong>Axiom has the expertise to deliver</strong>.</p>
-          <p>Our clients span Pakistan, the UK, the USA, and beyond. We work with property managers, service-based companies, founders, and CEOs who are serious about running data-driven, financially clear operations.</p>
+          <p>Our clients span Pakistan, the UK, the USA, and beyond. We work with property managers, service-based companies, s, and CEOs who are serious about running data-driven, financially clear operations.</p>
           <div class="story-img-grid">
             <img src="https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1555&auto=format&fit=crop
             " alt="Data Analytics" />
@@ -919,15 +919,15 @@
     </div>
   </section>
 
-  <!-- FOUNDER -->
+  <!--  -->
   <section class="founder-section">
     <div class="container">
       <div class="founder-grid">
         <div class="reveal">
           <div class="founder-card">
-            <div src class="founder-photo">
-              <div class="founder-initials">AT</div>
-            </div>
+           <div class="founder-photo">
+          <img src="Assets/founder.jpg" alt="Awais Tahir" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+         </div>
             <div class="founder-card-body">
               <div class="founder-fname">Awais Tahir</div>
               <div class="founder-frole">Founder & CEO, Axiom Business Tech</div>
