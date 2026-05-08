@@ -17,41 +17,103 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* ── FIX 1: Map --color-* aliases to the site's actual --clr-* tokens.
-       style.css defines --clr-* (dark theme). about.html was written with
-       --color-* names so every var() resolved to undefined (transparent),
-       letting the dark body bleed through. ───────────────────────────── */
-    :root {
-      --color-white:  var(--clr-bg);
-      --color-bg:     var(--clr-surface);
-      --color-bg-alt: var(--clr-surface-2);
-      --color-black:  var(--clr-white);
-      --color-dark:   var(--clr-text);
-      --color-mid:    var(--clr-subtle);
-      --color-muted:  var(--clr-muted);
-      --color-border: var(--clr-border);
+    .mobile-menu { display: none; }
+
+    /* ── ABOUT HERO — matches portfolio.html / services.html style ── */
+    .about-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: var(--nav-h);
     }
-
-    /* ── FIX 2: Force-hide mobile menu on load. style.css may declare
-       .mobile-menu { display: flex } globally; !important wins over that.
-       The JS toggle works by setting element.style.display directly,
-       which overrides even !important, so hamburger toggling still works. */
-    #mobileMenu { display: none !important; }
-    #mobileMenu.open { display: flex !important; }
-
-    /* ── Page-specific layout (unchanged from original) ─────────────── */
-    .page-hero { padding: calc(var(--nav-h, 72px) + 80px) 0 80px; background: var(--clr-bg); position: relative; overflow: hidden; }
-    .page-hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px); background-size: 50px 50px; pointer-events: none; }
-    .page-hero-content { position: relative; z-index: 1; max-width: 760px; }
-    .page-hero-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 16px; background: var(--clr-surface); border: 1px solid var(--clr-border); border-radius: var(--radius-full); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clr-white); margin-bottom: 24px; }
-    .page-hero-title { font-family: var(--font-display); font-size: clamp(36px, 5vw, 60px); font-weight: 800; line-height: 1.12; color: var(--clr-white); margin-bottom: 24px; }
-    .page-hero-title span { position: relative; display: inline-block; color: var(--clr-accent); }
-    .page-hero-subtitle { font-size: 18px; color: var(--clr-muted); line-height: 1.75; max-width: 600px; }
-    .breadcrumb { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--clr-muted); margin-bottom: 32px; }
-    .breadcrumb a { color: var(--clr-muted); transition: color 0.2s; }
-    .breadcrumb a:hover { color: var(--clr-white); }
-    .breadcrumb-sep { font-size: 10px; opacity: 0.5; }
-    .breadcrumb-current { color: var(--clr-white); font-weight: 500; }
+    .about-hero-bg { position: absolute; inset: 0; z-index: 0; }
+    .about-hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: brightness(0.50) saturate(0.6);
+    }
+    .about-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(10,11,15,0.65) 0%, rgba(10,11,15,0.2) 50%, rgba(10,11,15,0.92) 100%);
+    }
+    .about-hero::after {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 200px 200px; pointer-events: none; opacity: 0.5;
+    }
+    .about-hero-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 780px;
+      padding: 0 24px;
+      animation: heroFadeIn 1s ease both;
+    }
+    .about-hero-content .breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-display); font-size: 12px;
+      color: var(--clr-muted); margin-bottom: 24px; letter-spacing: 0.05em;
+    }
+    .about-hero-content .breadcrumb a { color: var(--clr-muted); transition: color var(--transition); }
+    .about-hero-content .breadcrumb a:hover { color: var(--clr-accent); }
+    .about-hero-content .breadcrumb span { color: var(--clr-accent); }
+    .about-hero-content .section-label {
+      justify-content: center; margin-bottom: 20px;
+      animation: heroFadeIn 1s 0.1s ease both;
+    }
+    .about-hero-content .section-label::before { display: none; }
+    .about-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 58px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em; color: var(--clr-white);
+      margin-bottom: 22px;
+      animation: heroFadeIn 1s 0.2s ease both;
+    }
+    .about-hero-title .grad {
+      color: transparent;
+      background: linear-gradient(135deg, var(--clr-accent) 0%, var(--clr-accent-2) 100%);
+      -webkit-background-clip: text; background-clip: text;
+    }
+    .about-hero-subtitle {
+      font-size: clamp(15px, 1.8vw, 17px);
+      color: rgba(232,234,240,0.72);
+      max-width: 580px; margin: 0 auto 36px;
+      line-height: 1.75;
+      animation: heroFadeIn 1s 0.3s ease both;
+    }
+    /* Hero stats — same as portfolio.html */
+    .about-hero-stats {
+      display: flex; align-items: center;
+      justify-content: center; gap: 0;
+      flex-wrap: wrap;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-xl);
+      padding: 20px 40px;
+      backdrop-filter: blur(12px);
+      animation: heroFadeIn 1s 0.4s ease both;
+      max-width: 580px; margin: 0 auto;
+    }
+    .about-hero-stat {
+      display: flex; flex-direction: column;
+      align-items: center; padding: 0 28px;
+    }
+    .about-hero-stat-divider {
+      width: 1px; height: 36px;
+      background: rgba(255,255,255,0.1);
+    }
+    .about-hero-stat-val {
+      font-family: var(--font-display);
+      font-size: 24px; font-weight: 800;
+      color: var(--clr-white); letter-spacing: -0.03em;
+      line-height: 1; margin-bottom: 3px;
+    }
+    .about-hero-stat-label {
+      font-size: 11px; color: var(--clr-muted);
+      font-weight: 500; letter-spacing: 0.04em;
+    }
 
     /* Story */
     .story-section { padding: var(--section-padding, 100px 0); background: var(--clr-bg); }
@@ -166,6 +228,9 @@
       .values-grid { grid-template-columns: 1fr 1fr; }
       .future-grid { grid-template-columns: 1fr; }
       .about-cta-banner { flex-direction: column; text-align: center; padding: 36px 28px; }
+      .about-hero-stats { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+      .about-hero-stat { flex: 1 1 45%; }
+      .about-hero-stat-divider { display: none; }
     }
     @media (max-width: 480px) {
       .values-grid { grid-template-columns: 1fr; }
@@ -175,7 +240,7 @@
 </head>
 <body>
 
-  <!-- ── NAVBAR (structure matches industries.html / style.css) ── -->
+  <!-- ── NAVBAR — matches portfolio.html / services.html exactly ── -->
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="index.html" class="nav-logo" id="navLogo">
@@ -186,6 +251,7 @@
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="about.html" class="nav-link active">About</a></li>
         <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="industries.html" class="nav-link">Industries</a></li>
         <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
         <li><a href="contact.html" class="nav-link nav-cta">Contact Us</a></li>
       </ul>
@@ -193,11 +259,11 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-    <!-- FIX: class changed from nav-mobile → mobile-menu to match style.css rule -->
     <div id="mobileMenu" class="mobile-menu">
       <a href="index.html" class="mob-link">Home</a>
       <a href="about.html" class="mob-link">About</a>
       <a href="services.html" class="mob-link">Services</a>
+      <a href="industries.html" class="mob-link">Industries</a>
       <a href="portfolio.html" class="mob-link">Portfolio</a>
       <a href="contact.html" class="mob-link mob-cta">Contact Us</a>
     </div>
@@ -205,18 +271,41 @@
 
   <main>
 
-    <section class="page-hero" aria-label="About page hero">
-      <div class="page-hero-grid" aria-hidden="true"></div>
-      <div class="container">
+    <!-- ── HERO — full image style matching portfolio.html / services.html ── -->
+    <section class="about-hero" aria-label="About page hero">
+      <div class="about-hero-bg">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80&auto=format&fit=crop" alt="Axiom Business Tech team and office" />
+        <div class="about-hero-overlay"></div>
+      </div>
+      <div class="about-hero-content">
         <div class="breadcrumb">
           <a href="index.html">Home</a>
-          <span class="breadcrumb-sep">›</span>
-          <span class="breadcrumb-current">About Us</span>
+          <span>›</span>
+          <span>About Us</span>
         </div>
-        <div class="page-hero-content">
-          <div class="page-hero-tag"><span>Our Story</span></div>
-          <h1 class="page-hero-title">We Build the Bridge Between <span>Finance & Technology</span></h1>
-          <p class="page-hero-subtitle">Axiom Business Tech is a modern business solutions company that combines accounting expertise, data analytics, and technology — helping businesses operate with clarity, efficiency, and confidence.</p>
+        <div class="section-label">Our Story</div>
+        <h1 class="about-hero-title">Finance Meets <span class="grad">Technology.</span></h1>
+        <p class="about-hero-subtitle">Axiom Business Tech combines accounting expertise, data analytics, and technology — helping businesses operate with clarity, efficiency, and confidence.</p>
+        <div class="about-hero-stats">
+          <div class="about-hero-stat">
+            <span class="about-hero-stat-val">50+</span>
+            <span class="about-hero-stat-label">Clients Served</span>
+          </div>
+          <div class="about-hero-stat-divider"></div>
+          <div class="about-hero-stat">
+            <span class="about-hero-stat-val">6</span>
+            <span class="about-hero-stat-label">Core Services</span>
+          </div>
+          <div class="about-hero-stat-divider"></div>
+          <div class="about-hero-stat">
+            <span class="about-hero-stat-val">3</span>
+            <span class="about-hero-stat-label">Countries</span>
+          </div>
+          <div class="about-hero-stat-divider"></div>
+          <div class="about-hero-stat">
+            <span class="about-hero-stat-val">100%</span>
+            <span class="about-hero-stat-label">Client Focus</span>
+          </div>
         </div>
       </div>
     </section>
@@ -447,6 +536,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="services.html">Services</a></li>
+            <li><a href="industries.html">Industries</a></li>
             <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -478,7 +568,7 @@
   </footer>
 
   <script>
-    // MOBILE MENU (matches industries.html pattern)
+    // MOBILE MENU
     var hamburger = document.getElementById('hamburgerBtn');
     var mobileMenu = document.getElementById('mobileMenu');
     if (hamburger && mobileMenu) {
@@ -513,7 +603,7 @@
       }, { passive: true });
     }
 
-    // LOGO HOVER (matches industries.html)
+    // LOGO HOVER
     var navLogo = document.getElementById('navLogo');
     var logoName = navLogo ? navLogo.querySelector('.logo-name') : null;
     if (navLogo && logoName) {
